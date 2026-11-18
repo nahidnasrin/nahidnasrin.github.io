@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nahid Nasrin | Transport Planning &amp; Sustainable Mobility</title>
+<meta name="description" content="Transport-planning and sustainable-mobility researcher at the University of Oviedo. Traffic modelling, GIS and transport decarbonisation. Based in Gijón, Spain.">
+<link rel="canonical" href="https://nahidnasrin.github.io/">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nahidnasrin.github.io/">
+<meta property="og:site_name" content="Nahid Nasrin">
+<meta property="og:title" content="Nahid Nasrin | Transport Planning &amp; Sustainable Mobility">
+<meta property="og:description" content="Traffic modelling, GIS and transport decarbonisation. Doctoral researcher, University of Oviedo. Based in Gijón, Spain.">
+<meta property="og:image" content="https://nahidnasrin.github.io/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FFFFFF;
+  --ink:#111417;
+  --soft:#5C6670;
+  --rule:#D9DEE3;
+  --blue:#0B4F8C;
+  --navy:#0A2238;
+  --l1:#111417;
+  --l2:#6F7C89;
+  --l3:#0B4F8C;
+  --head:"Barlow Semi Condensed","Arial Narrow",sans-serif;
+  --body:"Barlow",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --wrap:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+@media (max-width:600px){.wrap{padding:0 20px}}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px;z-index:99}
+.skip:focus{left:8px}
+
+/* layered sheets: each section pins once its bottom edge is on screen and the next slides over it */
+.stack{position:relative;z-index:1;background:var(--bg)}
+.layer{position:sticky;top:var(--t,0px);background:var(--bg);isolation:isolate}
+.layer + .layer{border-top:1px solid var(--ink);box-shadow:0 -22px 44px -26px rgba(10,34,56,.38)}
+.layer::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:var(--navy);opacity:calc(var(--cover,0) * .22)}
+.layer > .in{transform:scale(calc(1 - var(--cover,0) * .025));transform-origin:50% 0}
+.contact{position:sticky;bottom:0;z-index:0}
+.contact.tall{position:relative}
+
+/* top bar */
+.top{border-bottom:1px solid var(--ink)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+  background:var(--blue);color:#fff;font-family:var(--head);font-weight:700;font-size:19px;line-height:1}
+.brand b{font-family:var(--head);font-weight:600;font-size:19px;letter-spacing:.01em}
+.top nav{display:flex;gap:22px;margin-left:auto;font-size:15px;font-weight:500}
+.top nav a{text-decoration:none;color:var(--soft);padding:4px 0;border-bottom:2px solid transparent}
+.top nav a:hover{color:var(--ink);border-color:var(--ink)}
+.cv{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;
+  padding:8px 14px;background:var(--ink);color:#fff}
+.cv:hover{background:var(--blue)}
+@media (max-width:900px){.top nav{display:none}.cv{margin-left:auto}}
+
+/* hero */
+.hero-in{padding-top:44px;padding-bottom:48px}
+.kicker{margin:0;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.kicker span{color:var(--blue)}
+h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,154px);
+  line-height:.86;letter-spacing:-.025em;text-transform:uppercase}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;margin-top:22px;align-items:end}
+.lede{margin:0 0 22px;font-size:20px;line-height:1.45;max-width:34em}
+.lede strong{font-weight:600}
+.facts{margin:0;border-top:2px solid var(--ink)}
+.facts div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.facts dt{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--soft);padding-top:3px}
+.facts dd{margin:0;font-size:17px;font-weight:500}
+.facts .ok::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--blue);margin-right:8px;vertical-align:1px}
+@media (max-width:900px){
+  .hero-in{padding-top:36px}
+  .hero-grid{grid-template-columns:1fr;gap:26px}
+  .lede{font-size:19px}
+  h1{font-size:clamp(64px,20vw,140px)}
+}
+
+/* career route */
+.route-block{margin-top:44px;border-top:2px solid var(--ink);padding-top:16px}
+.route-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 28px}
+.route-head h2{margin:0;font-family:var(--head);font-weight:600;font-size:22px;letter-spacing:.01em}
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 0 auto;padding:0;list-style:none;font-size:14px;color:var(--soft)}
+.legend li{display:flex;align-items:center;gap:8px}
+.legend i{display:block;width:22px;height:6px}
+.note{margin:6px 0 0;font-size:13px;color:var(--soft)}
+
+.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(10,minmax(0,1fr))}
+.stop{position:relative;height:270px}
+.stop::after{content:"";position:absolute;top:calc(50% - 4px);left:50%;width:100%;height:8px;background:var(--out,transparent)}
+.stop.next-dash::after{background:repeating-linear-gradient(90deg,var(--l3) 0 12px,transparent 12px 20px)}
+.stop:last-child::after{display:none}
+.dot{position:absolute;z-index:1;top:50%;left:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;
+  background:#fff;border:5px solid var(--c)}
+.stop.ix .dot{width:52px;margin-left:-26px;border-radius:11px;border-color:var(--ink);border-width:4px}
+.stop.pending .dot{border-width:3px}
+.lbl{position:absolute;left:50%;width:172px;margin-left:-86px;text-align:center;font-size:14.5px;line-height:1.3}
+.lbl::before{content:"";position:absolute;left:50%;width:1px;background:var(--rule)}
+.up .lbl{bottom:calc(50% + 24px)}
+.up .lbl::before{top:100%;height:12px}
+.down .lbl{top:calc(50% + 24px)}
+.down .lbl::before{bottom:100%;height:12px}
+.yr{display:block;font-style:normal;font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--c)}
+.up .yr{margin-top:5px}
+.down .yr{margin-bottom:5px}
+.lbl b{display:block;font-family:var(--head);font-weight:600;font-size:17px;line-height:1.15}
+.lbl span{display:block;color:var(--soft)}
+.stop:first-child .lbl{left:calc(50% - 11px);width:150px;margin-left:0;text-align:left}
+.stop:first-child .lbl::before{left:11px}
+.stop:last-child .lbl{left:auto;right:calc(50% - 11px);width:150px;margin-left:0;text-align:right}
+.stop:last-child .lbl::before{left:auto;right:11px}
+
+@media (max-width:980px){
+  .route{display:block;margin-top:22px}
+  .stop{height:auto;padding:0 0 22px 52px;min-height:62px}
+  .stop::after{top:11px;left:17px;width:8px;height:100%}
+  .stop.next-dash::after{background:repeating-linear-gradient(180deg,var(--l3) 0 10px,transparent 10px 17px)}
+  .dot{top:0;left:10px;margin:0}
+  .stop.ix .dot{width:22px;height:40px;margin:0;left:10px;border-radius:11px}
+  .lbl,.up .lbl,.down .lbl,.stop:first-child .lbl,.stop:last-child .lbl{position:static;width:auto;margin:0;text-align:left;
+    display:flex;flex-direction:column}
+  .yr{order:-1}
+  .lbl::before{display:none}
+  .up .yr,.down .yr{margin:0 0 2px}
+  .lbl b{font-size:18px}
+}
+
+/* section sheets */
+.sheet-in{padding-top:56px;padding-bottom:72px}
+.s-head{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:18px;padding-bottom:16px;margin:0 0 32px;border-bottom:2px solid var(--ink)}
+.s-num{font-family:var(--mono);font-size:13px;color:var(--blue);padding-bottom:8px}
+.s-head h2{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(40px,5.4vw,72px);line-height:.92;
+  text-transform:uppercase;letter-spacing:-.01em}
+.s-of{font-family:var(--mono);font-size:12px;color:var(--soft);padding-bottom:8px}
+
+.prose{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px}
+.prose p{margin:0}
+.prose p:first-child{font-size:23px;line-height:1.45}
+.prose p + p{color:#2A3036}
+@media (max-width:860px){.prose{grid-template-columns:1fr;gap:18px}.prose p:first-child{font-size:20px}}
+
+.table{border-top:2px solid var(--ink)}
+.table .tr{display:grid;grid-template-columns:44px minmax(0,.9fr) minmax(0,2fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.table .tr i{font-style:normal;font-family:var(--mono);font-size:13px;color:var(--blue);padding-top:3px}
+.table h3{margin:0;font-family:var(--head);font-weight:600;font-size:20px;line-height:1.2}
+.table p{margin:0;color:#2A3036}
+@media (max-width:640px){.table .tr{grid-template-columns:34px 1fr;gap:4px 10px}.table p{grid-column:2}}
+
+/* doctoral research: the feature sheet, in navy */
+.feature{background:var(--navy);color:#fff}
+.feature .s-head{border-color:#fff}
+.feature .s-num{color:#8DB7E6}
+.feature .s-of{color:#9DB0C4}
+.thesis .lab{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#8DB7E6}
+.thesis h3{margin:12px 0 0;font-family:var(--head);font-weight:600;font-size:clamp(28px,3.6vw,44px);line-height:1.08;max-width:24em}
+.thesis-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:28px 0 0;border-top:1px solid #3A5470;border-bottom:1px solid #3A5470}
+.thesis-meta div{padding:12px 16px 14px 0}
+.thesis-meta div + div{padding-left:16px;border-left:1px solid #3A5470}
+.thesis-meta small{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#9DB0C4}
+.thesis-meta span{display:block;margin-top:4px;font-size:16px}
+@media (max-width:860px){
+  .thesis-meta{grid-template-columns:1fr 1fr}
+  .thesis-meta div:nth-child(3){padding-left:0;border-left:0}
+  .thesis-meta div:nth-child(n+3){border-top:1px solid #3A5470}
+}
+
+.flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch;margin-top:36px}
+.flow-col{border-top:4px solid var(--c);background:rgba(255,255,255,.05);padding:16px 18px 18px}
+.flow-col h4{margin:0 0 10px;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#9DB0C4}
+.flow-col ul{margin:0;padding:0;list-style:none}
+.flow-col li{padding:6px 0;border-bottom:1px solid #2C4560;font-size:16px;line-height:1.35}
+.flow-col li:last-child{border-bottom:0}
+.arrow{display:flex;align-items:center;justify-content:center}
+.arrow svg{width:26px;height:26px}
+.flow-note{margin:12px 0 0;font-size:14.5px;color:#9DB0C4}
+@media (max-width:860px){.flow{grid-template-columns:1fr}.arrow{height:34px}.arrow svg{transform:rotate(90deg)}}
+
+.points{margin:30px 0 0;padding:0;list-style:none;counter-reset:pt;border-top:1px solid #2C4560;
+  display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.points li{position:relative;padding:13px 0 13px 40px;border-bottom:1px solid #2C4560;font-size:16.5px}
+.points li::before{counter-increment:pt;content:counter(pt,decimal-leading-zero);position:absolute;left:0;top:15px;
+  font-family:var(--mono);font-size:13px;color:#8DB7E6}
+@media (max-width:860px){.points{grid-template-columns:1fr}}
+
+/* entries */
+.entry{display:grid;grid-template-columns:170px minmax(0,1fr);gap:28px;padding:24px 0;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:0;padding-top:4px}
+.when{font-family:var(--mono);font-size:13.5px;color:var(--soft);padding-top:5px}
+.entry h3{margin:0;font-family:var(--head);font-weight:600;font-size:25px;line-height:1.15}
+.org{margin:4px 0 0;color:var(--soft);font-size:16px}
+.entry ul{margin:12px 0 0;padding-left:20px}
+.entry li{margin:6px 0}
+.entry li::marker{color:var(--blue)}
+.entry p.d{margin:10px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chips span{font-family:var(--mono);font-size:12.5px;padding:3px 9px;border:1px solid var(--ink)}
+.mark{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:12.5px;padding:3px 9px;background:var(--blue);color:#fff}
+@media (max-width:640px){.entry{grid-template-columns:1fr;gap:6px}}
+
+.paper{display:grid;grid-template-columns:170px minmax(0,1fr);gap:28px;margin-top:40px;padding-top:24px;border-top:2px solid var(--ink)}
+.paper .lab{font-family:var(--mono);font-size:13.5px;color:var(--soft);padding-top:5px}
+.paper h3{margin:0;font-family:var(--head);font-weight:600;font-size:25px;line-height:1.15}
+.paper p{margin:8px 0 0;color:var(--soft)}
+.paper a.doi{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:14px;text-decoration:none;
+  border-bottom:2px solid var(--blue);padding-bottom:2px;overflow-wrap:anywhere}
+.paper a.doi:hover{background:var(--blue);color:#fff}
+@media (max-width:640px){.paper{grid-template-columns:1fr;gap:6px}}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;border-top:2px solid var(--ink)}
+.kit div{padding:16px 0 18px;border-bottom:1px solid var(--rule)}
+.kit h3{margin:0 0 8px;font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.kit p{margin:0;font-size:17px}
+@media (max-width:640px){.kit{grid-template-columns:1fr}}
+.langs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:40px;border:2px solid var(--ink)}
+.langs div{padding:16px 18px;border-right:1px solid var(--ink)}
+.langs div:last-child{border-right:0}
+.langs b{display:block;font-family:var(--head);font-weight:600;font-size:22px}
+.langs span{display:block;margin-top:2px;color:var(--soft);font-size:15.5px}
+@media (max-width:700px){.langs{grid-template-columns:1fr}.langs div{border-right:0;border-bottom:1px solid var(--ink)}.langs div:last-child{border-bottom:0}}
+
+/* line index, fixed on the right */
+.stops{position:fixed;right:26px;top:50%;z-index:20;transform:translateY(-50%);margin:0;padding:0;list-style:none}
+.stops::before{content:"";position:absolute;right:7px;top:8px;bottom:8px;width:2px;background:var(--rule)}
+.stops li{position:relative}
+.stops a{display:flex;align-items:center;justify-content:flex-end;gap:12px;padding:6px 0;text-decoration:none}
+.stops a span{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink);background:#fff;padding:2px 6px;
+  opacity:0;transform:translateX(6px);transition:opacity .15s,transform .15s;pointer-events:none;white-space:nowrap}
+.stops a::after{content:"";flex:0 0 auto;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--rule);
+  box-sizing:border-box;position:relative;transition:border-color .2s,background .2s}
+.stops a:hover span,.stops a:focus-visible span{opacity:1;transform:none}
+.stops .past a::after{border-color:var(--blue)}
+.stops .here a::after{border-color:var(--blue);background:var(--blue)}
+.stops{transition:opacity .2s}
+.stops.off{opacity:0;pointer-events:none}
+.stops.on-dark::before{background:#3A5470}
+.stops.on-dark .past a::after{border-color:#8DB7E6}
+@media (max-width:1180px){.stops{display:none}}
+
+/* contact: uncovered at the end */
+.contact{background:var(--blue);color:#fff;padding:72px 0 30px}
+.terminus{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#CFE0F2}
+.terminus i{display:block;width:22px;height:22px;border-radius:50%;background:var(--blue);border:5px solid #fff}
+.contact h2{margin:22px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(46px,7vw,100px);line-height:.9;text-transform:uppercase}
+.contact .sub2{margin:18px 0 0;font-size:19px;color:#E3EDF7;max-width:36em}
+.c-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:44px;border-top:1px solid rgba(255,255,255,.45)}
+.c-links a{display:flex;flex-direction:column;gap:6px;padding:18px 20px 20px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.45)}
+.c-links a + a{padding-left:20px;border-left:1px solid rgba(255,255,255,.45)}
+.c-links small{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#CFE0F2}
+.c-links span{font-size:18px;font-weight:500;overflow-wrap:anywhere}
+.c-links span::after{content:" \2197"}
+.c-links a.dl span::after{content:" \2193"}
+.c-links a:hover span{text-decoration:underline;text-underline-offset:4px}
+.end{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:56px;font-family:var(--mono);font-size:12.5px;color:#CFE0F2}
+@media (max-width:900px){
+  .c-links{grid-template-columns:1fr 1fr}
+  .c-links a + a{padding-left:0;border-left:0}
+  .c-links a:nth-child(2n){padding-left:20px;border-left:1px solid rgba(255,255,255,.45)}
+}
+@media (max-width:520px){
+  .c-links{grid-template-columns:1fr}
+  .c-links a:nth-child(2n){padding-left:0;border-left:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .layer > .in{transform:none}
+  .stops a span,.stops a::after{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#profile">Skip to content</a>
+
+<div class="stack">
+
+<header class="layer hero" id="top">
+<div class="in">
+  <div class="top">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Nahid Nasrin, top of page"><span class="badge" aria-hidden="true">N</span><b>Nahid Nasrin</b></a>
+      <nav aria-label="Sections">
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cv" href="Nahid-Nasrin-CV.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">&darr;</span></a>
+    </div>
+  </div>
+
+  <div class="wrap hero-in">
+    <p class="kicker">Transport planning <span>/</span> Sustainable mobility <span>/</span> Traffic modelling &amp; GIS</p>
+    <div class="hero-grid">
+      <h1 id="name">Nahid<br>Nasrin</h1>
+      <div>
+        <p class="lede">Transport-planning and sustainable-mobility researcher at the <strong>University of Oviedo</strong>. I study how
+          routes, traffic conditions and vehicle technology shape travel time, energy use and emissions, using PTV Visum,
+          PTV Vissim, Aimsun, GIS, Python and MATLAB.</p>
+        <dl class="facts">
+          <div><dt>Based in</dt><dd>Gij&oacute;n, Asturias, Spain</dd></div>
+          <div><dt>Work status</dt><dd class="ok">Authorised to work in Spain without sponsorship</dd></div>
+          <div><dt>Doctorate</dt><dd>PhD thesis submitted, defence pending</dd></div>
+          <div><dt>Languages</dt><dd>Bengali &middot; English C1 &middot; Spanish</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="route-block">
+      <div class="route-head">
+        <h2>Route so far, 2008&ndash;2026</h2>
+        <ul class="legend" aria-label="Key">
+          <li><i style="background:var(--l1)"></i>Bangladesh</li>
+          <li><i style="background:var(--l2)"></i>Erasmus Mundus</li>
+          <li><i style="background:var(--l3)"></i>University of Oviedo</li>
+        </ul>
+      </div>
+      <p class="note">Schematic, like a transit map: stops are evenly spaced, not to scale.</p>
+
+      <ol class="route">
+        <li class="stop up" style="--c:var(--l1);--out:var(--l1)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><b>BSc, EEE</b><span>CUET, Chittagong</span><em class="yr">2008</em></div>
+        </li>
+        <li class="stop down" style="--c:var(--l1);--out:var(--l1)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><em class="yr">2012</em><b>Graduated</b><span>CGPA 3.68, 16th of 117</span></div>
+        </li>
+        <li class="stop up" style="--c:var(--l1);--out:var(--l1)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><b>Lecturer, EEE</b><span>UITS and PCIU</span><em class="yr">2013</em></div>
+        </li>
+        <li class="stop down" style="--c:var(--l1);--out:var(--l2)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><em class="yr">2015</em><b>Head of Department</b><span>EEE, Port City International University</span></div>
+        </li>
+        <li class="stop up ix" style="--c:var(--l2);--out:var(--l2)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><b>Erasmus Mundus MSc</b><span>Coimbra &middot; Nottingham &middot; Oviedo</span><em class="yr">2018</em></div>
+        </li>
+        <li class="stop down" style="--c:var(--l2);--out:var(--l3)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><em class="yr">2019</em><b>Gij&oacute;n Smart Cities Chair</b><span>Energy-management dashboards</span></div>
+        </li>
+        <li class="stop up" style="--c:var(--l3);--out:var(--l3)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><b>PhD, Oviedo</b><span>Severo Ochoa research contract</span><em class="yr">2020</em></div>
+        </li>
+        <li class="stop down" style="--c:var(--l3);--out:var(--l3)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><em class="yr">2022</em><b>IEEE VPPC paper</b><span>Simulation models for CO&#8322; reduction</span></div>
+        </li>
+        <li class="stop up next-dash" style="--c:var(--l3)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><b>Thesis submitted</b><span>Transport decarbonisation</span><em class="yr">2026</em></div>
+        </li>
+        <li class="stop down pending" style="--c:var(--l3)">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="lbl"><em class="yr">Next</em><b>Doctoral defence</b><span>Pending</span></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+</header>
+
+<section class="layer" id="profile" aria-labelledby="h-profile">
+<div class="in"><div class="wrap sheet-in">
+  <div class="s-head"><span class="s-num">01</span><h2 id="h-profile">Profile</h2><span class="s-of">01 / 07</span></div>
+  <div class="prose">
+    <p>I come to transport planning from electrical and electronic engineering. After an Erasmus Mundus master&rsquo;s in
+      Sustainable Transport and Electrical Power Systems, I have spent nearly six years in doctoral research on transport
+      decarbonisation at the University of Oviedo.</p>
+    <p>My work covers urban and interurban traffic studies, route and network assessment, transport modelling and scenario
+      analysis. It brings together road-network, traffic-signal, elevation, GPS/OBD and geospatial data, and ends in
+      clear technical reports for supervisors and multidisciplinary collaborators. Before that, I taught electrical and
+      electronic engineering and led a university department in Bangladesh.</p>
+  </div>
+</div></div>
+</section>
+
+<section class="layer" id="expertise" aria-labelledby="h-expertise">
+<div class="in"><div class="wrap sheet-in">
+  <div class="s-head"><span class="s-num">02</span><h2 id="h-expertise">Expertise</h2><span class="s-of">02 / 07</span></div>
+  <div class="table">
+    <div class="tr"><i>A</i><h3>Transport planning and traffic studies</h3><p>Urban, metropolitan and interurban route assessment; traffic conditions; road-network performance; sustainable-mobility studies.</p></div>
+    <div class="tr"><i>B</i><h3>Transport modelling and simulation</h3><p>PTV Visum, PTV Vissim and Aimsun; scenario development; traffic signals; route choice; speed and vehicle-trajectory analysis.</p></div>
+    <div class="tr"><i>C</i><h3>GIS and spatial data</h3><p>GIS, OpenStreetMap, Mapbox, Geoapify and public routing APIs; road geometry, speed limits, elevation and traffic-signal data.</p></div>
+    <div class="tr"><i>D</i><h3>Programming, analysis and reporting</h3><p>Python, MATLAB, advanced Excel, SQLite; data cleaning; KPI design; visualisation; technical reports and presentations.</p></div>
+    <div class="tr"><i>E</i><h3>Sustainable mobility</h3><p>Transport decarbonisation; conventional, hybrid and electric vehicles; energy and emissions assessment; charging-infrastructure analysis.</p></div>
+    <div class="tr"><i>F</i><h3>International collaboration</h3><p>English C1; Erasmus Mundus education; multidisciplinary teamwork; evidence-based recommendations; stakeholder communication.</p></div>
+  </div>
+</div></div>
+</section>
+
+<section class="layer feature" id="research" aria-labelledby="h-research">
+<div class="in"><div class="wrap sheet-in">
+  <div class="s-head"><span class="s-num">03</span><h2 id="h-research">Doctoral research</h2><span class="s-of">03 / 07</span></div>
+
+  <div class="thesis">
+    <p class="lab">PhD thesis &middot; Energy and Process Control</p>
+    <h3>Transport Decarbonisation through Electronic Systems and Digital Management Strategies</h3>
+    <div class="thesis-meta">
+      <div><small>University</small><span>University of Oviedo, Gij&oacute;n</span></div>
+      <div><small>Period</small><span>2020&ndash;2026</span></div>
+      <div><small>Funding</small><span>Severo Ochoa predoctoral contract, Principality of Asturias</span></div>
+      <div><small>Status</small><span>Thesis submitted, defence pending</span></div>
+    </div>
+  </div>
+
+  <div class="flow" role="group" aria-label="How the modelling framework works">
+    <div class="flow-col" style="--c:#FFFFFF">
+      <h4>Data in</h4>
+      <ul>
+        <li>Route geometry and road classification</li>
+        <li>Speed limits, turns and traffic signals</li>
+        <li>Elevation</li>
+        <li>GPS/OBD logs and time series</li>
+        <li>OpenStreetMap and routing APIs</li>
+      </ul>
+    </div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M3 13h18M15 6l7 7-7 7" fill="none" stroke="#FFFFFF" stroke-width="2.4"/></svg></div>
+    <div class="flow-col" style="--c:#8DB7E6">
+      <h4>Modelling</h4>
+      <ul>
+        <li>PTV Visum, PTV Vissim, Aimsun</li>
+        <li>MATLAB and Python</li>
+        <li>Scenario and sensitivity analysis</li>
+        <li>Signals, speed profiles, road conditions, driver behaviour</li>
+      </ul>
+    </div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M3 13h18M15 6l7 7-7 7" fill="none" stroke="#FFFFFF" stroke-width="2.4"/></svg></div>
+    <div class="flow-col" style="--c:#2F80D0">
+      <h4>Indicators out</h4>
+      <ul>
+        <li>Travel time</li>
+        <li>Energy demand</li>
+        <li>Emissions</li>
+        <li>Efficiency</li>
+        <li>Compared across conventional, hybrid and electric vehicles and driver profiles</li>
+      </ul>
+    </div>
+  </div>
+  <p class="flow-note">Outputs benchmarked against peer-reviewed studies and established transport and emissions models, with modelled fuel consumption checked against real-driving Torque OBD data.</p>
+
+  <ol class="points">
+    <li>Conducted urban and interurban mobility studies using route geometry, road classification, speed limits, traffic signals, elevation and operating conditions.</li>
+    <li>Applied PTV Visum, PTV Vissim and Aimsun alongside MATLAB and Python to develop and evaluate transport, traffic and vehicle-performance scenarios.</li>
+    <li>Collected, cleaned and integrated multi-source GIS and mobility data from OpenStreetMap, routing and mapping APIs, GPS/OBD logs and time series.</li>
+    <li>Developed comparative models and KPIs for conventional, hybrid and electric vehicles, linking route conditions and driver profiles with travel time, energy, emissions and efficiency.</li>
+    <li>Designed scenario and sensitivity analyses on traffic signals, speed profiles, road conditions, driver behaviour and modelling assumptions.</li>
+    <li>Translated methods and results into visualisations, technical reports, presentations and evidence-based recommendations.</li>
+  </ol>
+</div></div>
+</section>
+
+<section class="layer" id="projects" aria-labelledby="h-projects">
+<div class="in"><div class="wrap sheet-in">
+  <div class="s-head"><span class="s-num">04</span><h2 id="h-projects">Projects &amp; publication</h2><span class="s-of">04 / 07</span></div>
+  <article class="entry">
+    <div class="when">2020&ndash;present</div>
+    <div>
+      <h3>Urban and interurban transport-modelling framework</h3>
+      <p class="org">University of Oviedo</p>
+      <ul>
+        <li>A route and network assessment framework integrating road geometry, speed limits, traffic signals, turns, elevation and operational data across urban, mixed and interurban journeys.</li>
+        <li>Produces comparable mobility, energy and emissions indicators across vehicle technologies and driver profiles, to identify what drives performance and support sustainable-transport decisions.</li>
+      </ul>
+      <div class="chips"><span>PTV Visum</span><span>PTV Vissim</span><span>Aimsun</span><span>MATLAB</span><span>Python</span><span>GIS</span></div>
+    </div>
+  </article>
+  <article class="entry">
+    <div class="when">2019&ndash;2020</div>
+    <div>
+      <h3>Smart-city energy-management data visualisation</h3>
+      <p class="org">University of Oviedo &middot; Gij&oacute;n Smart Cities Chair</p>
+      <ul>
+        <li>Contributed to Building Energy Management System dashboards with the Gij&oacute;n DemoLab, supporting structured data integration, monitoring and accessible visualisation.</li>
+      </ul>
+      <div class="chips"><span>JavaScript</span><span>Node.js</span><span>Angular</span><span>SQLite</span></div>
+    </div>
+  </article>
+  <div class="paper" id="publication">
+    <div class="lab">IEEE VPPC 2022</div>
+    <div>
+      <h3>A Review of Simulation Models for CO&#8322; Pollution Reduction in the Transportation Sector</h3>
+      <p>Nasrin, N., El-Sayed, I., and Garcia, J. (2022). IEEE Vehicle Power and Propulsion Conference (VPPC).</p>
+      <a class="doi" href="https://doi.org/10.1109/VPPC55846.2022.10003288" target="_blank" rel="noopener">DOI 10.1109/VPPC55846.2022.10003288 &#8599;</a>
+    </div>
+  </div>
+</div></div>
+</section>
+
+<section class="layer" id="experience" aria-labelledby="h-experience">
+<div class="in"><div class="wrap sheet-in">
+  <div class="s-head"><span class="s-num">05</span><h2 id="h-experience">Teaching &amp; leadership</h2><span class="s-of">05 / 07</span></div>
+  <article class="entry">
+    <div class="when">Sep 2015&ndash;Sep 2018</div>
+    <div>
+      <h3>Head / Chair of Department, Electrical and Electronic Engineering</h3>
+      <p class="org">Port City International University, Chittagong, Bangladesh</p>
+      <ul>
+        <li>Led departmental planning and operations, coordinated staff workloads and supervised technical projects, balancing priorities, resources and delivery.</li>
+        <li>Represented the department in internal and external negotiations, and communicated technical and operational matters to senior management, staff, students and stakeholders.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="entry">
+    <div class="when">Jan 2013&ndash;Sep 2018</div>
+    <div>
+      <h3>Senior Lecturer / Lecturer, Electrical and Electronic Engineering</h3>
+      <p class="org">Port City International University &middot; University of Information Technology and Sciences</p>
+      <ul>
+        <li>Delivered engineering teaching and laboratories, supervised projects and theses, and presented complex technical material to audiences with different levels of expertise.</li>
+      </ul>
+    </div>
+  </article>
+</div></div>
+</section>
+
+<section class="layer" id="education" aria-labelledby="h-education">
+<div class="in"><div class="wrap sheet-in">
+  <div class="s-head"><span class="s-num">06</span><h2 id="h-education">Education</h2><span class="s-of">06 / 07</span></div>
+  <article class="entry">
+    <div class="when">2020&ndash;2026</div>
+    <div>
+      <h3>PhD, Energy and Process Control</h3>
+      <p class="org">University of Oviedo, Spain</p>
+      <p class="d">Thesis: <i>Transport Decarbonisation through Electronic Systems and Digital Management Strategies</i>.</p>
+      <span class="mark">Thesis submitted &middot; defence pending</span>
+    </div>
+  </article>
+  <article class="entry">
+    <div class="when">2018&ndash;2020</div>
+    <div>
+      <h3>MSc, Sustainable Transport and Electrical Power Systems (STEPS)</h3>
+      <p class="org">ISEC Coimbra &middot; University of Nottingham &middot; University of Oviedo</p>
+      <p class="d">Erasmus Mundus international programme funded by the European Commission.</p>
+    </div>
+  </article>
+  <article class="entry">
+    <div class="when">2008&ndash;2012</div>
+    <div>
+      <h3>BSc, Electrical and Electronic Engineering</h3>
+      <p class="org">Chittagong University of Engineering and Technology, Bangladesh</p>
+      <p class="d">CGPA 3.68 / 4.00, merit position 16 of 117.</p>
+    </div>
+  </article>
+</div></div>
+</section>
+
+<section class="layer" id="toolkit" aria-labelledby="h-toolkit">
+<div class="in"><div class="wrap sheet-in">
+  <div class="s-head"><span class="s-num">07</span><h2 id="h-toolkit">Toolkit</h2><span class="s-of">07 / 07</span></div>
+  <div class="kit">
+    <div><h3>Simulation and modelling</h3><p>PTV Visum, PTV Vissim, Aimsun, MATLAB</p></div>
+    <div><h3>GIS and mobility data</h3><p>GIS, OpenStreetMap, Mapbox, Geoapify, routing APIs, GPS/OBD, time series</p></div>
+    <div><h3>Programming and data</h3><p>Python, MATLAB, relational databases, SQLite, JSON, advanced Excel</p></div>
+    <div><h3>Analysis</h3><p>Traffic-signal, speed-profile, vehicle-trajectory, energy and emissions modelling; KPI design</p></div>
+  </div>
+  <div class="langs" aria-label="Languages">
+    <div><b>Bengali</b><span>Native</span></div>
+    <div><b>English</b><span>C1, IELTS 7.0</span></div>
+    <div><b>Spanish</b><span>Good written communication; speaking actively improving</span></div>
+  </div>
+</div></div>
+</section>
+
+</div>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="terminus"><i aria-hidden="true"></i>Terminus &middot; Contact</div>
+    <h2>Transport planning,<br>mobility &amp; GIS.</h2>
+    <p class="sub2">Based in Gij&oacute;n, Asturias, and authorised to work in Spain without sponsorship.</p>
+    <div class="c-links">
+      <a href="mailto:nahidnasrin14@gmail.com"><small>Email</small><span>nahidnasrin14@gmail.com</span></a>
+      <a href="https://www.linkedin.com/in/nahid-nasrin-347159b3" target="_blank" rel="noopener"><small>LinkedIn</small><span>nahid-nasrin</span></a>
+      <a href="https://www.researchgate.net/profile/Nahid-Nasrin" target="_blank" rel="noopener"><small>ResearchGate</small><span>Nahid-Nasrin</span></a>
+      <a class="dl" href="Nahid-Nasrin-CV.pdf" target="_blank" rel="noopener"><small>Curriculum vitae</small><span>Download CV</span></a>
+    </div>
+    <div class="end"><span>&copy; <span id="yr">2026</span> Nahid Nasrin</span><span>Gij&oacute;n, Asturias, Spain</span></div>
+  </div>
+</footer>
+
+<ol class="stops" aria-label="Sections">
+  <li><a href="#top"><span>Cover</span></a></li>
+  <li><a href="#profile"><span>01 Profile</span></a></li>
+  <li><a href="#expertise"><span>02 Expertise</span></a></li>
+  <li><a href="#research"><span>03 Doctoral research</span></a></li>
+  <li><a href="#projects"><span>04 Projects</span></a></li>
+  <li><a href="#experience"><span>05 Teaching</span></a></li>
+  <li><a href="#education"><span>06 Education</span></a></li>
+  <li><a href="#toolkit"><span>07 Toolkit</span></a></li>
+  <li><a href="#contact"><span>Contact</span></a></li>
+</ol>
+
+<script>
+(function(){
+  var layers = Array.prototype.slice.call(document.querySelectorAll('.layer'));
+  var stack = document.querySelector('.stack'), foot = document.querySelector('.contact');
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var stops = Array.prototype.slice.call(document.querySelectorAll('.stops li'));
+  var nav = document.querySelector('.stops');
+  var ticking = false;
+
+  /* pin each sheet once its bottom edge is on screen; taller sheets scroll first */
+  function pin(){
+    var vh = window.innerHeight;
+    /* a footer taller than the screen cannot be uncovered from underneath without hiding its top, so it scrolls normally */
+    if (foot) foot.classList.toggle('tall', foot.offsetHeight > vh);
+    layers.forEach(function(l){ l.style.setProperty('--t', Math.min(0, vh - l.offsetHeight) + 'px'); });
+    paint();
+  }
+
+  function paint(){
+    ticking = false;
+    var vh = window.innerHeight;
+    /* a sheet dims and settles slightly as the next one covers it */
+    layers.forEach(function(l, i){
+      var next = layers[i + 1], c = 0;
+      if (next) {
+        var top = next.getBoundingClientRect().top, h = Math.min(vh, l.offsetHeight);
+        c = Math.max(0, Math.min(1, 1 - top / h));
+      }
+      l.style.setProperty('--cover', (reduce ? 0 : c).toFixed(3));
+    });
+    /* which sheet is in front */
+    var cur = 0;
+    layers.forEach(function(l, i){ if (l.getBoundingClientRect().top <= vh * 0.45) cur = i; });
+    var atFoot = stack && stack.getBoundingClientRect().bottom < vh * 0.55;
+    var idx = atFoot ? stops.length - 1 : cur;
+    stops.forEach(function(li, i){ li.classList.toggle('here', i === idx); li.classList.toggle('past', i < idx); });
+    if (nav) nav.classList.toggle('off', atFoot);
+    if (nav) nav.classList.toggle('on-dark', !atFoot && layers[cur] && layers[cur].classList.contains('feature'));
+  }
+  function on(){ if (!ticking) { ticking = true; requestAnimationFrame(paint); } }
+
+  pin();
+  window.addEventListener('scroll', on, {passive:true});
+  window.addEventListener('resize', pin, {passive:true});
+  window.addEventListener('load', pin);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(pin);
+  if ('ResizeObserver' in window) { var ro = new ResizeObserver(pin); layers.forEach(function(l){ ro.observe(l); }); }
+
+  /* anchor links land on a sheet's own start, not where a pinned sheet currently sits */
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]'), function(a){
+    var id = a.getAttribute('href').slice(1);
+    var t = id && document.getElementById(id);
+    if (!t) return;
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var y = 0, target = t.classList.contains('layer') ? t : t.closest('.layer');
+      if (t === foot) y = document.documentElement.scrollHeight;
+      else for (var i = 0; i < layers.length && layers[i] !== target; i++) y += layers[i].offsetHeight;
+      window.scrollTo({top:y, behavior: reduce ? 'auto' : 'smooth'});
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+      if (t.classList.contains('layer')) { t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); }
+    });
+  });
+
+  var yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
