@@ -54,7 +54,8 @@ a{color:inherit}
 .skip:focus{left:8px}
 
 /* layered sheets: each section pins once its bottom edge is on screen and the next slides over it */
-.stack{position:relative;z-index:1;background:#081521}
+.stack{position:relative;z-index:1;background:#081521;border-radius:0 0 26px 26px}
+.deck{border-radius:26px!important}
 .layer{position:sticky;top:var(--t,0px);min-height:100vh;background:var(--bg);isolation:isolate;
   transform:scale(calc(1 - var(--cover,0) * .06));transform-origin:50% var(--oy,50vh)}
 .layer:not(.hero){border-radius:26px 26px 0 0;box-shadow:0 -1px 0 rgba(17,20,23,.14),0 -34px 70px -24px rgba(4,14,24,.55)}
@@ -66,7 +67,7 @@ a{color:inherit}
 .deck > .part + .part{border-top:1px solid var(--rule)}
 .deck > #research + .part{border-top:0}
 .hold{height:85vh}
-@media (max-width:700px){.layer:not(.hero){border-radius:18px 18px 0 0}.hold{height:90vh}}
+@media (max-width:700px){.layer:not(.hero){border-radius:18px 18px 0 0}.hold{height:90vh}.stack{border-radius:0 0 18px 18px}.deck{border-radius:18px!important}}
 .contact{position:sticky;bottom:0;z-index:0}
 .contact.tall{position:relative}
 
@@ -317,7 +318,8 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 .entry p.d{margin:10px 0 0}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .chips span{font-family:var(--mono);font-size:12.5px;padding:3px 9px;border:1px solid var(--ink)}
-.mark{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:12.5px;padding:3px 9px;background:var(--blue);color:#fff}
+.marks{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.mark{display:inline-block;font-family:var(--mono);font-size:12.5px;padding:3px 9px;background:var(--blue);color:#fff}
 @media (max-width:640px){.entry{grid-template-columns:1fr;gap:6px}}
 
 .paper{display:grid;grid-template-columns:170px minmax(0,1fr);gap:28px;margin-top:40px;padding-top:24px;border-top:2px solid var(--ink)}
@@ -385,7 +387,7 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 @media (max-width:1180px){.stops{display:none}}
 
 /* contact: uncovered at the end */
-.contact{background:var(--blue);color:#fff;padding:72px 0 30px}
+.contact{background:var(--blue);color:#fff;padding:98px 0 30px;margin-top:-26px}
 .terminus{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#CFE0F2}
 .terminus i{display:block;width:22px;height:22px;border-radius:50%;background:var(--blue);border:5px solid #fff}
 .contact h2{margin:22px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(46px,7vw,100px);line-height:.9;text-transform:uppercase}
@@ -450,7 +452,7 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
     </div>
     <figure class="junction" aria-label="Illustrative animation of a four-arm signalised junction with vehicles queueing and moving on the signal phases.">
       <canvas aria-hidden="true"></canvas>
-      <p class="j-tag"><span class="lg">Signalised junction &middot; </span>Illustrative simulation</p>
+      <p class="j-tag">Signalised junction</p>
       <figcaption class="hud" aria-hidden="true">
         <span><i class="hud-dot"></i><b class="hud-phase">E&ndash;W green</b></span>
         <span>Vehicles<span class="lg"> in view</span> <b class="hud-n">0</b></span>
@@ -525,7 +527,6 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
   <div class="pf">
     <figure class="pass" aria-label="Profile summary">
       <div class="pass-top">
-        <span class="pass-id" aria-hidden="true">NN</span>
         <div><b>Nahid Nasrin</b><span>Transport planning &amp; sustainable mobility</span></div>
         <span class="pass-k" aria-hidden="true">Profile</span>
       </div>
@@ -714,7 +715,7 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
       <h3>PhD, Energy and Process Control</h3>
       <p class="org">University of Oviedo, Spain</p>
       <p class="d">Thesis: <i>Transport Decarbonisation through Electronic Systems and Digital Management Strategies</i>.</p>
-      <span class="mark">Thesis submitted &middot; defence pending</span>
+      <span class="marks"><span class="mark">Thesis submitted</span><span class="mark">Defence pending</span></span>
     </div>
   </article>
   <article class="entry">
@@ -770,7 +771,7 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
       <a href="mailto:nahidnasrin14@gmail.com"><small>Email</small><span>nahidnasrin14@gmail.com</span></a>
       <a href="https://www.linkedin.com/in/nahid-nasrin-347159b3" target="_blank" rel="noopener"><small>LinkedIn</small><span>nahid-nasrin</span></a>
       <a href="https://www.researchgate.net/profile/Nahid-Nasrin" target="_blank" rel="noopener"><small>ResearchGate</small><span>Nahid-Nasrin</span></a>
-      <a class="dl" href="Nahid-Nasrin-Resume.pdf" target="_blank" rel="noopener"><small>Resume</small><span>Download resume</span></a>
+      <a class="dl" href="Nahid-Nasrin-Resume.pdf" target="_blank" rel="noopener"><small>Resume</small><span>Download</span></a>
     </div>
     <div class="end"><span>&copy; <span id="yr">2026</span> Nahid Nasrin</span><span>Gij&oacute;n, Asturias, Spain</span></div>
   </div>
@@ -823,6 +824,9 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
       }
       var cv = (reduce ? 0 : c).toFixed(3);
       if (l._cv !== cv) { l._cv = cv; l.style.setProperty('--cover', cv); }
+      /* a sheet that is completely covered is hidden, so nothing shows through the rounded corners of the sheet on top */
+      var gone = next ? next.getBoundingClientRect().top <= 0 : false;
+      if (l._gone !== gone) { l._gone = gone; l.style.visibility = gone ? 'hidden' : ''; }
     });
     /* which sheet is in front */
     var cur = 0;
