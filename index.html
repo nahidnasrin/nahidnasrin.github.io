@@ -189,21 +189,37 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
   text-transform:uppercase;letter-spacing:-.01em}
 .s-of{font-family:var(--mono);font-size:12px;color:var(--soft);padding-bottom:8px}
 
-.prose{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px}
-.prose p{margin:0}
-.prose p:first-child{font-size:23px;line-height:1.45}
-.prose p + p{color:#2A3036}
-@media (max-width:860px){.prose{grid-template-columns:1fr;gap:18px}.prose p:first-child{font-size:20px}}
-.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:56px 0 0;border-top:2px solid var(--ink)}
-.figs div{padding:18px 22px 4px 0}
-.figs div + div{padding-left:22px;border-left:1px solid var(--rule)}
-.figs dt{font-family:var(--head);font-weight:700;font-size:clamp(52px,5.6vw,80px);line-height:.9;color:var(--blue);letter-spacing:-.02em}
-.figs dt small{font-size:.36em;font-weight:600;letter-spacing:0;color:var(--soft);margin-left:4px}
-.figs dd{margin:10px 0 0;font-size:15.5px;line-height:1.4;color:#2A3036}
-@media (max-width:860px){
-  .figs{grid-template-columns:1fr 1fr}
-  .figs div:nth-child(3){padding-left:0;border-left:0}
-  .figs div:nth-child(n+3){border-top:1px solid var(--rule);padding-top:18px}
+/* profile */
+.pf{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:60px;align-items:start}
+.pf-lead{margin:0;font-size:clamp(23px,2.25vw,31px);line-height:1.42;letter-spacing:-.005em;color:var(--ink)}
+.pf mark{color:inherit;background:linear-gradient(transparent 60%,rgba(11,79,140,.2) 60%) no-repeat 0 0;background-size:0% 100%;
+  transition:background-size 1s cubic-bezier(.2,.7,.2,1)}
+.pf mark:nth-of-type(2){transition-delay:.25s}
+.pf mark:nth-of-type(3){transition-delay:.5s}
+.pf.on mark{background-size:100% 100%}
+.pf-side{padding:4px 0 4px 28px;border-left:3px solid var(--blue)}
+.pf-side p{margin:0;font-size:17.5px;line-height:1.62;color:#2A3036}
+.pf-side p + p{margin-top:14px}
+.signs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin:72px 0 0;padding:0;list-style:none}
+.sign{position:relative;padding:32px 22px 22px;border-radius:12px;background:var(--blue);color:#fff;
+  box-shadow:inset 0 0 0 5px var(--blue),inset 0 0 0 7px #fff,0 22px 34px -22px rgba(11,79,140,.75);
+  transition:transform .25s,box-shadow .25s}
+.sign:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 5px var(--blue),inset 0 0 0 7px #fff,0 30px 40px -22px rgba(11,79,140,.85)}
+.sign .tab{position:absolute;top:-14px;left:20px;padding:3px 10px;border:2px solid var(--blue);border-radius:6px;background:#fff;color:var(--blue);
+  font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase}
+.sign b{display:block;font-family:var(--head);font-weight:700;font-size:clamp(56px,5.4vw,82px);line-height:.88;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.sign b small{margin-left:4px;font-size:.36em;font-weight:600;letter-spacing:0;color:#CFE0F2}
+.sign .cap{display:block;margin-top:14px;font-size:15px;line-height:1.42;color:#E3EDF7}
+@media (max-width:900px){
+  .pf{grid-template-columns:1fr;gap:26px}
+  .signs{grid-template-columns:1fr 1fr;gap:34px 18px;margin-top:60px}
+}
+@media (max-width:480px){
+  .pf-side{padding-left:18px}
+  .pf-side p{font-size:16.5px}
+  .signs{gap:30px 12px}
+  .sign{padding:28px 14px 16px}
+  .sign .cap{font-size:13.5px}
 }
 
 .table{border-top:2px solid var(--ink)}
@@ -304,36 +320,40 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 .paper a.doi:hover{background:var(--blue);color:#fff}
 @media (max-width:640px){.paper{grid-template-columns:1fr;gap:6px}}
 
-/* toolkit: a departures board */
-.board{background:#0E1923;color:#fff;border-radius:16px;overflow:hidden;
-  box-shadow:0 0 0 1px rgba(14,25,35,.1),0 34px 60px -28px rgba(14,25,35,.55),0 12px 24px -12px rgba(14,25,35,.3)}
-.b-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;background:#0B1520;border-bottom:1px solid rgba(255,255,255,.12);
-  font-family:var(--mono);font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#9FB2C3}
-.b-top b{font-weight:500;color:#fff}
-.b-clock b{font-size:16px;letter-spacing:.06em;margin-left:8px;font-variant-numeric:tabular-nums}
-.b-row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.25fr) 60px;gap:24px;align-items:center;padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.07)}
-.b-body .b-row:nth-child(odd){background:rgba(255,255,255,.022)}
-.b-h{padding-top:11px;padding-bottom:11px;font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#7F93A6}
-.b-h span:last-child{text-align:right}
-.b-row .t{font-family:var(--mono);font-weight:500;font-size:17px;letter-spacing:.04em;text-transform:uppercase;color:#fff;white-space:pre-wrap}
-.b-row .u{font-size:16px;color:#B8C7D4;line-height:1.4}
-.b-row .ln{justify-self:end}
-.b-row .ln i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;
-  background:#fff;color:#0E1923;font-family:var(--head);font-weight:700;font-size:16px;box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 3.5px #0E1923}
-.b-row:hover{background:rgba(127,179,232,.08)!important}
-.b-row:hover .t{color:#9FCBF5}
-.b-sep{padding:13px 24px;font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#7FB3E8;
-  background:rgba(127,179,232,.07);border-bottom:1px solid rgba(255,255,255,.1)}
-.b-foot{margin:0;padding:15px 24px 17px;font-size:14.5px;line-height:1.5;color:#8FA3B5}
-.b-foot b{color:#D4DEE8;font-weight:500}
-@media (max-width:700px){
-  .b-top,.b-row,.b-sep,.b-foot{padding-left:16px;padding-right:16px}
-  .b-row{grid-template-columns:minmax(0,1fr) 34px;gap:3px 12px}
-  .b-row .t{font-size:15px}
-  .b-row .u{grid-column:1;font-size:14.5px}
-  .b-row .ln{grid-row:1 / span 2;grid-column:2;align-self:center}
-  .b-h span:nth-child(2){display:none}
+/* toolkit: drawn as a transit map, one line per kind of tool */
+.tmap{margin:0}
+.tmap svg{display:block;width:100%;height:auto;overflow:visible}
+.tmap .nm{font-family:var(--head);font-weight:600;font-size:19px;fill:var(--ink)}
+.tmap .sb{font-family:var(--body);font-size:13.5px;fill:var(--soft)}
+.tmap .pl{font-family:var(--head);font-weight:700;font-size:17px;fill:#fff}
+.tmap .lg{font-family:var(--body);font-size:15px;fill:#2A3036}
+.tmap .lgh{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;fill:var(--soft)}
+.tmap .st{fill:#fff;stroke-width:5}
+.tmap .stop-g{transition:transform .2s}
+.tmap .stop-g:hover .nm{fill:var(--blue)}
+.tm-m{display:none}
+.meth{margin:26px 0 0;padding-top:16px;border-top:1px solid var(--rule);font-size:16px;color:#2A3036;max-width:70ch}
+.meth b{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-right:10px}
+.lang{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;border-top:2px solid var(--ink)}
+.lang div{padding:16px 22px 0 0}
+.lang div + div{padding-left:22px;border-left:1px solid var(--rule)}
+.lang b{display:block;font-family:var(--head);font-weight:700;font-size:clamp(30px,3vw,42px);line-height:1;text-transform:uppercase;letter-spacing:-.01em}
+.lang span{display:block;margin-top:8px;font-size:15.5px;color:var(--soft)}
+.lang-h{margin:48px 0 10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+@media (max-width:980px){
+  .tmap svg{display:none}
+  .tm-m{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+  .tm-line h3{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-family:var(--head);font-weight:600;font-size:19px;line-height:1.15}
+  .tm-line h3 i{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;background:var(--c);color:#fff;
+    font-style:normal;font-weight:700;font-size:16px;box-shadow:inset 0 0 0 2px var(--c),inset 0 0 0 3.5px #fff}
+  .tm-line ol{position:relative;margin:0;padding:0 0 0 34px;list-style:none}
+  .tm-line ol::before{content:"";position:absolute;left:11px;top:10px;bottom:10px;width:6px;background:var(--c)}
+  .tm-line li{position:relative;padding:6px 0 10px;font-family:var(--head);font-weight:600;font-size:18px;line-height:1.2}
+  .tm-line li::before{content:"";position:absolute;left:-30px;top:6px;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--c);box-sizing:border-box}
+  .tm-line li.ix::before{border-color:var(--ink);border-radius:7px;height:22px}
+  .tm-line li small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--soft);margin-top:2px}
 }
+@media (max-width:760px){.tm-m{grid-template-columns:1fr}.lang{grid-template-columns:1fr}.lang div + div{padding-left:0;border-left:0;border-top:1px solid var(--rule);margin-top:14px}}
 
 /* line index, fixed on the right */
 .stops{position:fixed;right:26px;top:50%;z-index:20;transform:translateY(-50%);margin:0;padding:0;list-style:none}
@@ -493,21 +513,23 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 <section class="layer" id="profile" aria-labelledby="h-profile">
 <div class="in"><div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">01</span><h2 id="h-profile">Profile</h2><span class="s-of">01 / 07</span></div>
-  <div class="prose">
-    <p>I come to transport planning from electrical and electronic engineering. After an Erasmus Mundus master&rsquo;s in
-      Sustainable Transport and Electrical Power Systems, I have spent nearly six years in doctoral research on transport
-      decarbonisation at the University of Oviedo.</p>
-    <p>My work covers urban and interurban traffic studies, route and network assessment, transport modelling and scenario
-      analysis. It brings together road-network, traffic-signal, elevation, GPS/OBD and geospatial data, and ends in
-      clear technical reports for supervisors and multidisciplinary collaborators. Before that, I taught electrical and
-      electronic engineering and led a university department in Bangladesh.</p>
+  <div class="pf">
+    <p class="pf-lead">I come to transport planning from <mark>electrical and electronic engineering</mark>. After an <mark>Erasmus Mundus master&rsquo;s</mark>
+      in Sustainable Transport and Electrical Power Systems, I have spent nearly six years in <mark>doctoral research on transport decarbonisation</mark>
+      at the University of Oviedo.</p>
+    <div class="pf-side">
+      <p>My work covers urban and interurban traffic studies, route and network assessment, transport modelling and scenario analysis.
+        It brings together road-network, traffic-signal, elevation, GPS/OBD and geospatial data, and ends in clear technical reports
+        for supervisors and multidisciplinary collaborators.</p>
+      <p>Before that, I taught electrical and electronic engineering and led a university department in Bangladesh.</p>
+    </div>
   </div>
-  <dl class="figs">
-    <div><dt>3</dt><dd>countries in the Erasmus Mundus MSc: Portugal, the UK and Spain</dd></div>
-    <div><dt>3</dt><dd>traffic-simulation suites: PTV Visum, PTV Vissim and Aimsun</dd></div>
-    <div><dt>3<small>yrs</small></dt><dd>as Head of the EEE Department, Port City International University</dd></div>
-    <div><dt>16<small>/117</small></dt><dd>merit position, BSc in Electrical and Electronic Engineering</dd></div>
-  </dl>
+  <ul class="signs">
+    <li class="sign"><span class="tab">MSc</span><b><span class="cnt" data-n="3">3</span></b><span class="cap">countries in the Erasmus Mundus MSc: Portugal, the UK and Spain</span></li>
+    <li class="sign"><span class="tab">Tools</span><b><span class="cnt" data-n="3">3</span></b><span class="cap">traffic-simulation suites: PTV Visum, PTV Vissim and Aimsun</span></li>
+    <li class="sign"><span class="tab">Leadership</span><b><span class="cnt" data-n="3">3</span><small>yrs</small></b><span class="cap">as Head of the EEE Department, Port City International University</span></li>
+    <li class="sign"><span class="tab">BSc</span><b><span class="cnt" data-n="16">16</span><small>/117</small></b><span class="cap">merit position, BSc in Electrical and Electronic Engineering</span></li>
+  </ul>
 </div></div>
 </section>
 <div class="hold" aria-hidden="true"></div>
@@ -698,29 +720,20 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 <section class="layer" id="toolkit" aria-labelledby="h-toolkit">
 <div class="in"><div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">07</span><h2 id="h-toolkit">Toolkit</h2><span class="s-of">07 / 07</span></div>
-  <div class="board" role="table" aria-label="Toolkit and languages">
-    <div class="b-top"><span><b>Toolkit</b> &middot; Tools in use</span><span class="b-clock" aria-hidden="true">Gij&oacute;n<b class="clk">--:--</b></span></div>
-    <div class="b-row b-h" role="row"><span role="columnheader">Tool</span><span role="columnheader">Used for</span><span role="columnheader">Line</span></div>
-    <div class="b-body" role="rowgroup">
-      <div class="b-row" role="row"><span class="t" role="cell">PTV Visum</span><span class="u" role="cell">Transport modelling and simulation</span><span class="ln" role="cell"><i title="Expertise line B">B</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">PTV Vissim</span><span class="u" role="cell">Transport modelling and simulation</span><span class="ln" role="cell"><i title="Expertise line B">B</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">Aimsun</span><span class="u" role="cell">Transport modelling and simulation</span><span class="ln" role="cell"><i title="Expertise line B">B</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">MATLAB</span><span class="u" role="cell">Modelling and analysis</span><span class="ln" role="cell"><i title="Expertise line D">D</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">Python</span><span class="u" role="cell">Data processing and analysis</span><span class="ln" role="cell"><i title="Expertise line D">D</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">GIS · OpenStreetMap</span><span class="u" role="cell">Spatial and route data</span><span class="ln" role="cell"><i title="Expertise line C">C</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">Mapbox · Geoapify · Routing APIs</span><span class="u" role="cell">Route, map and elevation data</span><span class="ln" role="cell"><i title="Expertise line C">C</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">GPS/OBD · Time series</span><span class="u" role="cell">Real-driving data</span><span class="ln" role="cell"><i title="Expertise line C">C</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">SQLite · Relational databases · JSON</span><span class="u" role="cell">Data storage and integration</span><span class="ln" role="cell"><i title="Expertise line D">D</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">Advanced Excel</span><span class="u" role="cell">Analysis and reporting</span><span class="ln" role="cell"><i title="Expertise line D">D</i></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">JavaScript · Node.js · Angular</span><span class="u" role="cell">Smart-city energy dashboards</span><span class="ln" role="cell"><i title="Expertise line D">D</i></span></div>
+  <figure class="tmap">
+    <svg viewBox="0 0 1176 470" role="img" aria-labelledby="tm-t tm-d"><title id="tm-t">Toolkit drawn as a transit map</title><desc id="tm-d">Line B, modelling and simulation: PTV Visum, PTV Vissim, Aimsun, MATLAB. Line D, programming and data: MATLAB, Python, SQLite with relational databases and JSON, advanced Excel, JavaScript with Node.js and Angular. Line C, GIS and mobility data: GIS, OpenStreetMap, Mapbox, Geoapify, routing APIs, GPS/OBD logs, time series. MATLAB is the interchange between lines B and D.</desc><path d="M58 96 H500 L620 236" fill="none" stroke="#0B4F8C" stroke-width="10" stroke-linejoin="round"/><path d="M620 236 H1118" fill="none" stroke="#111417" stroke-width="10"/><path d="M58 396 H1118" fill="none" stroke="#6F7C89" stroke-width="10"/><g><rect x="23" y="79" width="34" height="34" rx="7" fill="#0B4F8C"/><rect x="25.5" y="81.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="40" y="102" text-anchor="middle">B</text></g><g><rect x="23" y="379" width="34" height="34" rx="7" fill="#6F7C89"/><rect x="25.5" y="381.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="40" y="402" text-anchor="middle">C</text></g><g><rect x="1119" y="219" width="34" height="34" rx="7" fill="#111417"/><rect x="1121.5" y="221.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="1136" y="242" text-anchor="middle">D</text></g><g class="stop-g"><circle class="st" cx="140" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="140" y="72" text-anchor="middle">PTV Visum</text></g><g class="stop-g"><circle class="st" cx="290" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="290" y="72" text-anchor="middle">PTV Vissim</text></g><g class="stop-g"><circle class="st" cx="430" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="430" y="72" text-anchor="middle">Aimsun</text></g><g class="stop-g"><rect x="590" y="219" width="60" height="34" rx="17" fill="#fff" stroke="#111417" stroke-width="5"/><text class="nm" x="620" y="284" text-anchor="middle">MATLAB</text><text class="sb" x="620" y="303" text-anchor="middle">Interchange B · D</text></g><g class="stop-g"><circle class="st" cx="745" cy="236" r="9" stroke="#111417"/><text class="nm" x="745" y="270" text-anchor="middle">Python</text><text class="sb" x="745" y="289" text-anchor="middle">Data processing</text></g><g class="stop-g"><circle class="st" cx="855" cy="236" r="9" stroke="#111417"/><text class="sb" x="855" y="212" text-anchor="middle">Relational databases, JSON</text><text class="nm" x="855" y="193" text-anchor="middle">SQLite</text></g><g class="stop-g"><circle class="st" cx="965" cy="236" r="9" stroke="#111417"/><text class="nm" x="965" y="270" text-anchor="middle">Advanced Excel</text><text class="sb" x="965" y="289" text-anchor="middle">Analysis, reporting</text></g><g class="stop-g"><circle class="st" cx="1060" cy="236" r="9" stroke="#111417"/><text class="sb" x="1060" y="212" text-anchor="middle">Node.js, Angular</text><text class="nm" x="1060" y="193" text-anchor="middle">JavaScript</text></g><g class="stop-g"><circle class="st" cx="140" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="140" y="430" text-anchor="middle">GIS</text></g><g class="stop-g"><circle class="st" cx="290" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="290" y="430" text-anchor="middle">OpenStreetMap</text></g><g class="stop-g"><circle class="st" cx="440" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="440" y="430" text-anchor="middle">Mapbox</text></g><g class="stop-g"><circle class="st" cx="580" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="580" y="430" text-anchor="middle">Geoapify</text></g><g class="stop-g"><circle class="st" cx="725" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="725" y="430" text-anchor="middle">Routing APIs</text></g><g class="stop-g"><circle class="st" cx="880" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="880" y="430" text-anchor="middle">GPS/OBD logs</text><text class="sb" x="880" y="449" text-anchor="middle">Real driving</text></g><g class="stop-g"><circle class="st" cx="1040" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="1040" y="430" text-anchor="middle">Time series</text></g><text class="lgh" x="40" y="206">KEY</text><rect x="40" y="229" width="26" height="8" fill="#0B4F8C"/><text class="lg" x="78" y="238"><tspan font-weight="600">B</tspan>  Modelling and simulation</text><rect x="40" y="257" width="26" height="8" fill="#111417"/><text class="lg" x="78" y="266"><tspan font-weight="600">D</tspan>  Programming and data</text><rect x="40" y="285" width="26" height="8" fill="#6F7C89"/><text class="lg" x="78" y="294"><tspan font-weight="600">C</tspan>  GIS and mobility data</text><text class="lgh" x="40" y="322">LINE LETTERS MATCH THE EXPERTISE LIST</text></svg>
+    <div class="tm-m">
+      <section class="tm-line" style="--c:#0B4F8C"><h3><i>B</i>Modelling and simulation</h3><ol><li>PTV Visum</li><li>PTV Vissim</li><li>Aimsun</li><li class="ix">MATLAB<small>Interchange with line D</small></li></ol></section>
+      <section class="tm-line" style="--c:#111417"><h3><i>D</i>Programming and data</h3><ol><li class="ix">MATLAB<small>Interchange with line B</small></li><li>Python<small>Data processing</small></li><li>SQLite<small>Relational databases, JSON</small></li><li>Advanced Excel<small>Analysis, reporting</small></li><li>JavaScript<small>Node.js, Angular</small></li></ol></section>
+      <section class="tm-line" style="--c:#6F7C89"><h3><i>C</i>GIS and mobility data</h3><ol><li>GIS</li><li>OpenStreetMap</li><li>Mapbox</li><li>Geoapify</li><li>Routing APIs</li><li>GPS/OBD logs<small>Real driving</small></li><li>Time series</li></ol></section>
     </div>
-    <div class="b-sep" role="row"><span role="cell">Languages</span></div>
-    <div class="b-body" role="rowgroup">
-      <div class="b-row" role="row"><span class="t" role="cell">Bengali</span><span class="u" role="cell">Native</span><span class="ln" role="cell"></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">English</span><span class="u" role="cell">C1 · IELTS 7.0</span><span class="ln" role="cell"></span></div>
-      <div class="b-row" role="row"><span class="t" role="cell">Spanish</span><span class="u" role="cell">Good written communication; speaking actively improving</span><span class="ln" role="cell"></span></div>
-    </div>
-    <p class="b-foot"><b>Line</b> letters match the Expertise list. Methods: traffic-signal, speed-profile, vehicle-trajectory, energy and emissions modelling; KPI design.</p>
+  </figure>
+  <p class="meth"><b>Methods</b>Traffic-signal, speed-profile, vehicle-trajectory, energy and emissions modelling; KPI design.</p>
+  <p class="lang-h" aria-hidden="true">Languages</p>
+  <div class="lang" aria-label="Languages">
+    <div><b>Bengali</b><span>Native</span></div>
+    <div><b>English</b><span>C1 &middot; IELTS 7.0</span></div>
+    <div><b>Spanish</b><span>Good written communication; speaking actively improving</span></div>
   </div>
 </div></div>
 </section>
@@ -1127,33 +1140,25 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 })();
 </script>
 <script>
+/* profile: highlight the key phrases and count up the figures once they come into view */
 (function(){
-  var board = document.querySelector('.board'); if (!board) return;
-  var clk = board.querySelector('.clk');
-  function tick(){ try { clk.textContent = new Intl.DateTimeFormat('en-GB', {timeZone:'Europe/Madrid', hour:'2-digit', minute:'2-digit'}).format(new Date()); } catch (e) { clk.textContent = ''; } }
-  tick(); setInterval(tick, 20000);
+  var pf = document.querySelector('.pf'), signs = document.querySelector('.signs');
   var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  if (reduce || !('IntersectionObserver' in window)) return;
-  var cells = Array.prototype.slice.call(board.querySelectorAll('.t'));
-  var AZ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  function flap(){
-    var t0 = performance.now();
-    cells.forEach(function(el){ el.setAttribute('aria-label', el.textContent); el.dataset.f = el.textContent; });
-    (function frame(now){
-      var done = true;
-      cells.forEach(function(el, r){
-        var f = el.dataset.f, out = '';
-        for (var i = 0; i < f.length; i++) {
-          var settle = 120 + r * 40 + i * 16, ch = f[i];
-          if (now - t0 < settle && /[A-Za-z0-9]/.test(ch)) { out += AZ[(Math.random() * AZ.length) | 0]; done = false; } else out += ch;
-        }
-        el.textContent = out;
-      });
-      if (!done) setTimeout(function(){ requestAnimationFrame(frame); }, 45);
-    })(t0);
-  }
-  var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { io.disconnect(); flap(); } }, {threshold:.35});
-  io.observe(board);
+  if (!pf || !signs) return;
+  if (reduce || !('IntersectionObserver' in window)) { pf.classList.add('on'); return; }
+  new IntersectionObserver(function(es, o){ if (es[0].isIntersecting) { pf.classList.add('on'); o.disconnect(); } }, {threshold:.4}).observe(pf);
+  new IntersectionObserver(function(es, o){
+    if (!es[0].isIntersecting) return; o.disconnect();
+    Array.prototype.forEach.call(signs.querySelectorAll('.cnt'), function(el, k){
+      var n = +el.getAttribute('data-n'), t0 = performance.now() + k * 120, d = 900;
+      el.textContent = '0';
+      (function f(now){
+        var p = Math.min(1, Math.max(0, (now - t0) / d)), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(n * e);
+        if (p < 1) requestAnimationFrame(f);
+      })(performance.now());
+    });
+  }, {threshold:.5}).observe(signs);
 })();
 </script>
 </body>
