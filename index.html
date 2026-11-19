@@ -195,14 +195,13 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 
 /* section sheets */
 .sheet-in{padding-top:56px;padding-bottom:72px}
-.s-head{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:18px;padding-bottom:16px;margin:0 0 32px;border-bottom:2px solid var(--ink)}
-.s-num{display:inline-flex;align-items:center;justify-content:center;min-width:58px;height:44px;padding:0 12px;margin-bottom:4px;
+.s-head{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:18px;padding-bottom:16px;margin:0 0 32px;border-bottom:2px solid var(--ink)}
+.s-num{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 12px;margin-bottom:4px;
   background:var(--blue);color:#fff;font-family:var(--head);font-weight:700;font-size:24px;line-height:1;border-radius:7px;
   box-shadow:inset 0 0 0 3px var(--blue),inset 0 0 0 5px #fff}
-@media (max-width:600px){.s-num{min-width:46px;height:36px;font-size:19px;border-radius:6px}}
+@media (max-width:600px){.s-num{min-width:36px;height:36px;font-size:19px;border-radius:6px}}
 .s-head h2{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(40px,5.4vw,72px);line-height:.92;
   text-transform:uppercase;letter-spacing:-.01em}
-.s-of{font-family:var(--mono);font-size:12px;color:var(--soft);padding-bottom:8px}
 
 /* profile: a pass card with the facts a hirer scans for, next to the short version in plain words */
 .pf{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:64px;align-items:center}
@@ -310,7 +309,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 .drive-track{display:flex;gap:var(--gap,96px);width:max-content;margin:0;padding:0 0 0 var(--x);list-style:none;will-change:transform}
 .leg{flex:0 0 var(--pw,720px);opacity:.28;transition:opacity .4s}
 .leg.on{opacity:1}
-.leg .k{display:inline-flex;align-items:center;justify-content:center;min-width:54px;height:40px;padding:0 12px;
+.leg .k{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:40px;padding:0 12px;
   background:#fff;color:#0E1923;font-family:var(--head);font-weight:700;font-size:21px;border-radius:7px;
   box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 5px #0E1923}
 .leg h4{margin:20px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(40px,5.4vw,84px);line-height:.9;text-transform:uppercase;letter-spacing:-.01em}
@@ -557,7 +556,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 <div class="layer deck" id="deck">
 <section class="part" id="profile" aria-labelledby="h-profile">
 <div class="in"><div class="wrap sheet-in">
-  <div class="s-head"><span class="s-num">01</span><h2 id="h-profile">Profile</h2><span class="s-of">01 / 07</span></div>
+  <div class="s-head"><span class="s-num">1</span><h2 id="h-profile">Profile</h2></div>
   <div class="pf">
     <figure class="pass" aria-label="Profile summary">
       <div class="pass-top">
@@ -592,7 +591,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 </section>
 <section class="part" id="expertise" aria-labelledby="h-expertise">
 <div class="in"><div class="wrap sheet-in">
-  <div class="s-head"><span class="s-num">02</span><h2 id="h-expertise">Expertise</h2><span class="s-of">02 / 07</span></div>
+  <div class="s-head"><span class="s-num">2</span><h2 id="h-expertise">Expertise</h2></div>
   <ul class="xps">
     <li class="xp"><span class="xp-sign" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M9 31c0-9 22-6 22-17"/><circle cx="9" cy="31" r="3.2"/><path d="M31 21c-3.6-4.2-5.4-7-5.4-9.2a5.4 5.4 0 0 1 10.8 0c0 2.2-1.8 5-5.4 9.2z"/><circle cx="31" cy="11.8" r="1.6"/></svg></span><span class="xp-l" aria-hidden="true">A</span><h3>Transport planning</h3><ul><li>Urban and interurban routes</li><li>Traffic conditions</li><li>Road-network performance</li></ul></li>
     <li class="xp"><span class="xp-sign" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="14" y="4" width="12" height="26" rx="3.5"/><circle cx="20" cy="10.5" r="2.3"/><circle cx="20" cy="17" r="2.3"/><circle cx="20" cy="23.5" r="2.3"/><path d="M20 30v6"/></svg></span><span class="xp-l" aria-hidden="true">B</span><h3>Modelling and simulation</h3><ul><li>Scenario development</li><li>Traffic signals and route choice</li><li>Speed and trajectory analysis</li></ul></li>
@@ -607,7 +606,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 <section class="part" id="research" aria-labelledby="h-research">
 <div class="in">
 <div class="wrap sheet-in">
-  <div class="s-head"><span class="s-num">03</span><h2 id="h-research">Doctoral research</h2><span class="s-of">03 / 07</span></div>
+  <div class="s-head"><span class="s-num">3</span><h2 id="h-research">Doctoral research</h2></div>
   <div class="thesis">
     <p class="lab">PhD thesis &middot; Energy and Process Control &middot; University of Oviedo</p>
     <h3>Transport Decarbonisation through Electronic Systems and Digital Management Strategies</h3>
@@ -621,7 +620,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 
 <div class="drive">
   <div class="drive-pin">
-    <div class="drive-head"><span>The method, as one journey</span><span class="drive-count">Stage <b>01</b> / 05</span></div>
+    <div class="drive-head"><span>The method, as one journey</span><span class="drive-count">Stage <b>1</b> of 5</span></div>
     <div class="road2" aria-hidden="true">
       <div class="zn"><span>Urban</span><span>Mixed</span><span>Interurban</span></div>
       <div class="asph">
@@ -638,31 +637,31 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
     <div class="drive-view">
       <ol class="drive-track">
         <li class="leg">
-          <span class="k">01</span>
+          <span class="k">1</span>
           <h4>Read the route</h4>
           <p>Every journey starts as data: route geometry and road classification, speed limits, turns, traffic signals, elevation and operating conditions, across urban, mixed and interurban trips.</p>
           <ul class="tg"><li>OpenStreetMap</li><li>Mapbox</li><li>Geoapify</li><li>Routing APIs</li><li>GPS/OBD logs</li><li>Time series</li></ul>
         </li>
         <li class="leg">
-          <span class="k">02</span>
+          <span class="k">2</span>
           <h4>Model the traffic</h4>
           <p>The cleaned data feeds transport, traffic and vehicle-performance models, built and evaluated in industry simulation software alongside MATLAB and Python.</p>
           <ul class="tg"><li>PTV Visum</li><li>PTV Vissim</li><li>Aimsun</li><li>MATLAB</li><li>Python</li></ul>
         </li>
         <li class="leg">
-          <span class="k">03</span>
+          <span class="k">3</span>
           <h4>Test the scenarios</h4>
           <p>Scenario and sensitivity analyses vary what a driver actually meets on the road, and the assumptions behind the model.</p>
           <ul class="tg"><li>Traffic signals</li><li>Speed profiles</li><li>Road conditions</li><li>Driver behaviour</li><li>Modelling assumptions</li></ul>
         </li>
         <li class="leg">
-          <span class="k">04</span>
+          <span class="k">4</span>
           <h4>Measure the outcome</h4>
           <p>Each run produces comparable indicators for conventional, hybrid and electric vehicles and for different driver profiles, to show what drives performance.</p>
           <ul class="four"><li>Travel time</li><li>Energy demand</li><li>Emissions</li><li>Efficiency</li></ul>
         </li>
         <li class="leg">
-          <span class="k">05</span>
+          <span class="k">5</span>
           <h4>Check and report</h4>
           <p>Results are benchmarked against peer-reviewed studies and established transport and emissions models, with modelled fuel consumption checked against real-driving Torque OBD data, then written up as visualisations, technical reports and evidence-based recommendations.</p>
         </li>
@@ -675,7 +674,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 
 <section class="part" id="projects" aria-labelledby="h-projects">
 <div class="in"><div class="wrap sheet-in">
-  <div class="s-head"><span class="s-num">04</span><h2 id="h-projects">Projects &amp; publication</h2><span class="s-of">04 / 07</span></div>
+  <div class="s-head"><span class="s-num">4</span><h2 id="h-projects">Projects &amp; publication</h2></div>
   <article class="entry">
     <div class="when">2020&ndash;present</div>
     <div>
@@ -712,7 +711,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 
 <section class="part" id="experience" aria-labelledby="h-experience">
 <div class="in"><div class="wrap sheet-in">
-  <div class="s-head"><span class="s-num">05</span><h2 id="h-experience">Teaching &amp; leadership</h2><span class="s-of">05 / 07</span></div>
+  <div class="s-head"><span class="s-num">5</span><h2 id="h-experience">Teaching &amp; leadership</h2></div>
   <article class="entry">
     <div class="when">Sep 2015&ndash;Sep 2018</div>
     <div>
@@ -739,7 +738,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 
 <section class="part" id="education" aria-labelledby="h-education">
 <div class="in"><div class="wrap sheet-in">
-  <div class="s-head"><span class="s-num">06</span><h2 id="h-education">Education</h2><span class="s-of">06 / 07</span></div>
+  <div class="s-head"><span class="s-num">6</span><h2 id="h-education">Education</h2></div>
   <article class="entry">
     <div class="when">2020&ndash;2026</div>
     <div>
@@ -770,7 +769,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 
 <section class="part" id="toolkit" aria-labelledby="h-toolkit">
 <div class="in"><div class="wrap sheet-in">
-  <div class="s-head"><span class="s-num">07</span><h2 id="h-toolkit">Toolkit</h2><span class="s-of">07 / 07</span></div>
+  <div class="s-head"><span class="s-num">7</span><h2 id="h-toolkit">Toolkit</h2></div>
   <figure class="tmap">
     <svg viewBox="0 0 1176 470" role="img" aria-labelledby="tm-t tm-d"><title id="tm-t">Toolkit drawn as a transit map</title><desc id="tm-d">Line B, modelling and simulation: PTV Visum, PTV Vissim, Aimsun, MATLAB. Line D, programming and data: MATLAB, Python, SQLite with relational databases and JSON, advanced Excel, JavaScript with Node.js and Angular. Line C, GIS and mobility data: GIS, OpenStreetMap, Mapbox, Geoapify, routing APIs, GPS/OBD logs, time series. MATLAB is the interchange between lines B and D.</desc><path d="M58 96 H500 L620 236" fill="none" stroke="#0B4F8C" stroke-width="10" stroke-linejoin="round"/><path d="M620 236 H1118" fill="none" stroke="#111417" stroke-width="10"/><path d="M58 396 H1118" fill="none" stroke="#6F7C89" stroke-width="10"/><g><rect x="23" y="79" width="34" height="34" rx="7" fill="#0B4F8C"/><rect x="25.5" y="81.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="40" y="102" text-anchor="middle">B</text></g><g><rect x="23" y="379" width="34" height="34" rx="7" fill="#6F7C89"/><rect x="25.5" y="381.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="40" y="402" text-anchor="middle">C</text></g><g><rect x="1119" y="219" width="34" height="34" rx="7" fill="#111417"/><rect x="1121.5" y="221.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="1136" y="242" text-anchor="middle">D</text></g><g class="stop-g"><circle class="st" cx="140" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="140" y="72" text-anchor="middle">PTV Visum</text></g><g class="stop-g"><circle class="st" cx="290" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="290" y="72" text-anchor="middle">PTV Vissim</text></g><g class="stop-g"><circle class="st" cx="430" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="430" y="72" text-anchor="middle">Aimsun</text></g><g class="stop-g"><rect x="590" y="219" width="60" height="34" rx="17" fill="#fff" stroke="#111417" stroke-width="5"/><text class="nm" x="620" y="284" text-anchor="middle">MATLAB</text><text class="sb" x="620" y="303" text-anchor="middle">Interchange B · D</text></g><g class="stop-g"><circle class="st" cx="745" cy="236" r="9" stroke="#111417"/><text class="nm" x="745" y="270" text-anchor="middle">Python</text><text class="sb" x="745" y="289" text-anchor="middle">Data processing</text></g><g class="stop-g"><circle class="st" cx="855" cy="236" r="9" stroke="#111417"/><text class="sb" x="855" y="212" text-anchor="middle">Relational databases, JSON</text><text class="nm" x="855" y="193" text-anchor="middle">SQLite</text></g><g class="stop-g"><circle class="st" cx="965" cy="236" r="9" stroke="#111417"/><text class="nm" x="965" y="270" text-anchor="middle">Advanced Excel</text><text class="sb" x="965" y="289" text-anchor="middle">Analysis, reporting</text></g><g class="stop-g"><circle class="st" cx="1060" cy="236" r="9" stroke="#111417"/><text class="sb" x="1060" y="212" text-anchor="middle">Node.js, Angular</text><text class="nm" x="1060" y="193" text-anchor="middle">JavaScript</text></g><g class="stop-g"><circle class="st" cx="140" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="140" y="430" text-anchor="middle">GIS</text></g><g class="stop-g"><circle class="st" cx="290" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="290" y="430" text-anchor="middle">OpenStreetMap</text></g><g class="stop-g"><circle class="st" cx="440" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="440" y="430" text-anchor="middle">Mapbox</text></g><g class="stop-g"><circle class="st" cx="580" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="580" y="430" text-anchor="middle">Geoapify</text></g><g class="stop-g"><circle class="st" cx="725" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="725" y="430" text-anchor="middle">Routing APIs</text></g><g class="stop-g"><circle class="st" cx="880" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="880" y="430" text-anchor="middle">GPS/OBD logs</text><text class="sb" x="880" y="449" text-anchor="middle">Real driving</text></g><g class="stop-g"><circle class="st" cx="1040" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="1040" y="430" text-anchor="middle">Time series</text></g><text class="lgh" x="40" y="206">KEY</text><rect x="40" y="229" width="26" height="8" fill="#0B4F8C"/><text class="lg" x="78" y="238"><tspan font-weight="600">B</tspan>  Modelling and simulation</text><rect x="40" y="257" width="26" height="8" fill="#111417"/><text class="lg" x="78" y="266"><tspan font-weight="600">D</tspan>  Programming and data</text><rect x="40" y="285" width="26" height="8" fill="#6F7C89"/><text class="lg" x="78" y="294"><tspan font-weight="600">C</tspan>  GIS and mobility data</text><text class="lgh" x="40" y="322">LINE LETTERS MATCH THE EXPERTISE LIST</text></svg>
     <div class="tm-m">
@@ -809,13 +808,13 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
 
 <ol class="stops" aria-label="Sections">
   <li><a href="#top"><span>Cover</span></a></li>
-  <li><a href="#profile"><span>01 Profile</span></a></li>
-  <li><a href="#expertise"><span>02 Expertise</span></a></li>
-  <li><a href="#research"><span>03 Doctoral research</span></a></li>
-  <li><a href="#projects"><span>04 Projects</span></a></li>
-  <li><a href="#experience"><span>05 Teaching</span></a></li>
-  <li><a href="#education"><span>06 Education</span></a></li>
-  <li><a href="#toolkit"><span>07 Toolkit</span></a></li>
+  <li><a href="#profile"><span>1 Profile</span></a></li>
+  <li><a href="#expertise"><span>2 Expertise</span></a></li>
+  <li><a href="#research"><span>3 Doctoral research</span></a></li>
+  <li><a href="#projects"><span>4 Projects</span></a></li>
+  <li><a href="#experience"><span>5 Teaching</span></a></li>
+  <li><a href="#education"><span>6 Education</span></a></li>
+  <li><a href="#toolkit"><span>7 Toolkit</span></a></li>
   <li><a href="#contact"><span>Contact</span></a></li>
 </ol>
 
@@ -1167,7 +1166,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,9.2vw,1
     if (i === at) return; at = i;
     legs.forEach(function(l, k){ l.classList.toggle('on', k === i); });
     posts.forEach(function(p, k){ p.classList.toggle('on', k <= i); });
-    if (count) count.textContent = '0' + (i + 1);
+    if (count) count.textContent = String(i + 1);
   }
   if (reduce) { d.classList.add('static'); legs.forEach(function(l){ l.classList.add('on'); }); posts.forEach(function(p){ p.classList.add('on'); }); road.style.setProperty('--p', 1); return; }
   function measure(){
