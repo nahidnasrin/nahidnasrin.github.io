@@ -84,24 +84,47 @@ a{color:inherit}
 @media (max-width:900px){.top nav{display:none}.cv{margin-left:auto}}
 
 /* hero */
-.hero-in{padding-top:44px;padding-bottom:48px}
-.kicker{margin:0;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);min-height:clamp(620px,calc(100vh - 65px),960px)}
+.intro{display:flex;flex-direction:column;justify-content:center;
+  padding:40px 56px 44px max(32px,calc((100vw - var(--wrap)) / 2 + 32px))}
+.kicker{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.02em;text-transform:uppercase;color:var(--soft)}
 .kicker span{color:var(--blue)}
-h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,154px);
+h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,8.4vw,146px);
   line-height:.86;letter-spacing:-.025em;text-transform:uppercase}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;margin-top:22px;align-items:end}
-.lede{margin:0 0 22px;font-size:20px;line-height:1.45;max-width:34em}
+.lede{margin:26px 0 0;font-size:19px;line-height:1.5;max-width:31em}
 .lede strong{font-weight:600}
-.facts{margin:0;border-top:2px solid var(--ink)}
-.facts div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--rule)}
-.facts dt{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--soft);padding-top:3px}
-.facts dd{margin:0;font-size:17px;font-weight:500}
-.facts .ok::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--blue);margin-right:8px;vertical-align:1px}
-@media (max-width:900px){
-  .hero-in{padding-top:36px}
-  .hero-grid{grid-template-columns:1fr;gap:26px}
-  .lede{font-size:19px}
-  h1{font-size:clamp(64px,20vw,140px)}
+.facts{display:grid;grid-template-columns:1fr 1fr;margin:30px 0 0;border-top:2px solid var(--ink)}
+.facts div{padding:11px 16px 12px 0;border-bottom:1px solid var(--rule)}
+.facts div:nth-child(even){padding-left:16px;border-left:1px solid var(--rule)}
+.facts dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.facts dd{margin:4px 0 0;font-size:16px;font-weight:500;line-height:1.35}
+.facts .ok::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-right:7px;vertical-align:1px}
+
+/* the junction: a small live traffic simulation */
+.junction{position:relative;margin:0;background:#0E1923;overflow:hidden;min-height:440px}
+.junction canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.j-tag{position:absolute;top:16px;left:18px;margin:0;padding:6px 10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
+  text-transform:uppercase;color:#D5E0EA;background:rgba(9,17,25,.78);border:1px solid rgba(255,255,255,.14)}
+.hud{position:absolute;left:0;right:0;bottom:0;display:flex;flex-wrap:wrap;gap:6px 24px;padding:12px 18px;
+  font-family:var(--mono);font-size:12px;color:#AFC0CF;background:rgba(9,17,25,.86);border-top:1px solid rgba(255,255,255,.12)}
+.hud b{font-weight:500;color:#fff}
+.hud i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:0;background:var(--sig,#30A46C)}
+.hud .grow{margin-left:auto}
+.route-wrap{padding-bottom:48px}
+.route-wrap .route-block{margin-top:0;border-top:0;padding-top:40px}
+@media (max-width:980px){
+  .stage{grid-template-columns:1fr;min-height:0}
+  .intro{padding:34px 32px 30px}
+  .junction{height:400px;min-height:0}
+}
+@media (max-width:600px){
+  .intro{padding:30px 20px 26px}
+  h1{font-size:clamp(64px,21vw,120px)}
+  .lede{font-size:18px}
+  .facts{grid-template-columns:1fr}
+  .facts div:nth-child(even){padding-left:0;border-left:0}
+  .junction{height:340px}
+  .hud .grow{margin-left:0}
 }
 
 /* career route */
@@ -192,41 +215,64 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 .table p{margin:0;color:#2A3036}
 @media (max-width:640px){.table .tr{grid-template-columns:34px 1fr;gap:4px 10px}.table p{grid-column:2}}
 
-/* doctoral research: the feature sheet, in navy */
-.feature{background:var(--navy);color:#fff}
-.feature .s-head{border-color:#fff}
-.feature .s-num{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 5px var(--navy)}
-.feature .s-of{color:#9DB0C4}
-.thesis .lab{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#8DB7E6}
-.thesis h3{margin:12px 0 0;font-family:var(--head);font-weight:600;font-size:clamp(28px,3.6vw,44px);line-height:1.08;max-width:24em}
-.thesis-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:28px 0 0;border-top:1px solid #3A5470;border-bottom:1px solid #3A5470}
-.thesis-meta div{padding:12px 16px 14px 0}
-.thesis-meta div + div{padding-left:16px;border-left:1px solid #3A5470}
-.thesis-meta small{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#9DB0C4}
-.thesis-meta span{display:block;margin-top:4px;font-size:16px}
-@media (max-width:860px){
-  .thesis-meta{grid-template-columns:1fr 1fr}
-  .thesis-meta div:nth-child(3){padding-left:0;border-left:0}
-  .thesis-meta div:nth-child(n+3){border-top:1px solid #3A5470}
+/* doctoral research */
+.thesis .lab{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.thesis h3{margin:14px 0 0;max-width:20em;font-family:var(--head);font-weight:700;font-size:clamp(34px,4.3vw,64px);line-height:1.02;letter-spacing:-.01em}
+.tmeta{display:flex;flex-wrap:wrap;gap:8px 0;margin:24px 0 0;padding:0;list-style:none;font-size:16px;color:#2A3036}
+.tmeta li{padding-right:18px;margin-right:18px;border-right:1px solid var(--rule)}
+.tmeta li:last-child{border-right:0}
+#research .sheet-in{padding-bottom:56px}
+
+/* the drive: scrolling moves a vehicle along a route, one stage of the method at a time */
+.drive{--x:max(32px,calc((100vw - var(--wrap)) / 2 + 32px));position:relative;background:#0E1923;color:#fff}
+.drive-pin{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:4vh 0}
+.drive-head{display:flex;justify-content:space-between;gap:16px;margin:0 var(--x) 18px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#9FB2C3}
+.drive-count b{font-weight:500;color:#fff}
+.road2{position:relative;margin:0 var(--x)}
+.road2 .zn{display:grid;grid-template-columns:1.1fr .9fr 1.4fr;font-family:var(--head);font-weight:600;font-size:16px;color:#C9D6E2}
+.road2 .zn span{padding:0 0 7px 10px;border-left:2px solid #4D5B68}
+.road2 .zn span:last-child{border-color:#3D8BD9}
+.road2 .asph{position:relative;height:34px;background:#2B3640;border-top:2px solid #46525D;border-bottom:2px solid #46525D}
+.road2 .asph::after{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.75) 0 22px,transparent 22px 40px)}
+.car{position:absolute;z-index:2;top:3px;left:calc(var(--p,0) * (100% - 56px));width:56px;height:26px;filter:drop-shadow(0 3px 3px rgba(0,0,0,.45))}
+.posts{position:relative;height:46px;margin:0;padding:0;list-style:none}
+.posts li{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;
+  font-family:var(--mono);font-size:11.5px;color:#8396A8;transition:color .3s}
+.posts li::before{content:"";width:2px;height:12px;background:#46525D;margin-bottom:6px}
+.posts li span{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:20px;padding:0 5px;margin-bottom:4px;
+  border:1.5px solid #5A6976;border-radius:4px;color:#C9D6E2;font-weight:500;transition:background .3s,border-color .3s,color .3s}
+.posts li.on{color:#fff}
+.posts li.on span{background:#fff;border-color:#fff;color:#0E1923}
+.posts li:first-child{transform:none;align-items:flex-start}
+.posts li:last-child{transform:translateX(-100%);align-items:flex-end}
+
+.drive-view{margin-top:clamp(20px,5vh,56px)}
+.drive-track{display:flex;gap:var(--gap,96px);width:max-content;margin:0;padding:0 0 0 var(--x);list-style:none;will-change:transform}
+.leg{flex:0 0 var(--pw,720px);opacity:.28;transition:opacity .4s}
+.leg.on{opacity:1}
+.leg .k{display:inline-flex;align-items:center;justify-content:center;min-width:54px;height:40px;padding:0 12px;
+  background:#fff;color:#0E1923;font-family:var(--head);font-weight:700;font-size:21px;border-radius:7px;
+  box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 5px #0E1923}
+.leg h4{margin:20px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(40px,5.4vw,84px);line-height:.9;text-transform:uppercase;letter-spacing:-.01em}
+.leg p{margin:20px 0 0;max-width:34em;font-size:clamp(17px,1.35vw,20px);line-height:1.55;color:#D3DDE7}
+.leg .tg{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 0;padding:0;list-style:none}
+.leg .tg li{font-family:var(--mono);font-size:12.5px;padding:4px 10px;border:1px solid rgba(255,255,255,.32);color:#E4EBF2}
+.leg .four{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin:22px 0 0;padding:0;list-style:none}
+.leg .four li{font-family:var(--head);font-weight:700;font-size:clamp(24px,2.3vw,34px);line-height:1;text-transform:uppercase;color:#7FB3E8;
+  padding-top:10px;border-top:1px solid rgba(255,255,255,.2)}
+.drive.static .drive-pin{position:static;height:auto;padding:48px 0}
+.drive.static .drive-track{flex-direction:column;width:auto;gap:56px;padding-right:var(--x)}
+.drive.static .leg{opacity:1;flex-basis:auto}
+.drive.static .car{left:auto;right:0}
+@media (max-width:700px){
+  .drive{--x:20px}
+  .road2 .zn{font-size:13px}
+  .posts li em{display:none}
+  .leg p{font-size:16.5px}
 }
+@media (max-height:700px) and (min-width:701px){.leg h4{font-size:clamp(36px,4.4vw,60px)}.leg p{font-size:16.5px;margin-top:14px}}
 
-.flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch;margin-top:36px}
-.flow-col{border-top:4px solid var(--c);background:rgba(255,255,255,.05);padding:16px 18px 18px}
-.flow-col h4{margin:0 0 10px;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#9DB0C4}
-.flow-col ul{margin:0;padding:0;list-style:none}
-.flow-col li{padding:6px 0;border-bottom:1px solid #2C4560;font-size:16px;line-height:1.35}
-.flow-col li:last-child{border-bottom:0}
-.arrow{display:flex;align-items:center;justify-content:center}
-.arrow svg{width:26px;height:26px}
-.flow-note{margin:12px 0 0;font-size:14.5px;color:#9DB0C4}
-@media (max-width:860px){.flow{grid-template-columns:1fr}.arrow{height:34px}.arrow svg{transform:rotate(90deg)}}
-
-.points{margin:30px 0 0;padding:0;list-style:none;counter-reset:pt;border-top:1px solid #2C4560;
-  display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
-.points li{position:relative;padding:13px 0 13px 40px;border-bottom:1px solid #2C4560;font-size:16.5px}
-.points li::before{counter-increment:pt;content:counter(pt,decimal-leading-zero);position:absolute;left:0;top:15px;
-  font-family:var(--mono);font-size:13px;color:#8DB7E6}
-@media (max-width:860px){.points{grid-template-columns:1fr}}
 
 /* entries */
 .entry{display:grid;grid-template-columns:170px minmax(0,1fr);gap:28px;padding:24px 0;border-top:1px solid var(--rule)}
@@ -283,8 +329,10 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 .stops .here a::after{border-color:var(--blue);background:var(--blue)}
 .stops{transition:opacity .2s}
 .stops.off{opacity:0;pointer-events:none}
-.stops.on-dark::before{background:#3A5470}
-.stops.on-dark .past a::after{border-color:#8DB7E6}
+.stops.on-dark::before{background:#3A4A59}
+.stops.on-dark a::after{background:#0E1923;border-color:#4A5B6B}
+.stops.on-dark .past a::after{border-color:#7FB3E8}
+.stops.on-dark .here a::after{background:#7FB3E8;border-color:#7FB3E8}
 @media (max-width:1180px){.stops{display:none}}
 
 /* contact: uncovered at the end */
@@ -298,8 +346,6 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 .c-links a + a{padding-left:20px;border-left:1px solid rgba(255,255,255,.45)}
 .c-links small{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#CFE0F2}
 .c-links span{font-size:18px;font-weight:500;overflow-wrap:anywhere}
-.c-links span::after{content:" \2197"}
-.c-links a.dl span::after{content:" \2193"}
 .c-links a:hover span{text-decoration:underline;text-underline-offset:4px}
 .end{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:56px;font-family:var(--mono);font-size:12.5px;color:#CFE0F2}
 @media (max-width:900px){
@@ -335,27 +381,36 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="cv" href="Nahid-Nasrin-CV.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">&darr;</span></a>
+      <a class="cv" href="Nahid-Nasrin-Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </div>
 
-  <div class="wrap hero-in">
-    <p class="kicker">Transport planning <span>/</span> Sustainable mobility <span>/</span> Traffic modelling &amp; GIS</p>
-    <div class="hero-grid">
+  <div class="stage">
+    <div class="intro">
+      <p class="kicker">Transport planning <span>/</span> Sustainable mobility <span>/</span> Traffic modelling &amp; GIS</p>
       <h1 id="name">Nahid<br>Nasrin</h1>
-      <div>
-        <p class="lede">Transport-planning and sustainable-mobility researcher at the <strong>University of Oviedo</strong>. I study how
-          routes, traffic conditions and vehicle technology shape travel time, energy use and emissions, using PTV Visum,
-          PTV Vissim, Aimsun, GIS, Python and MATLAB.</p>
-        <dl class="facts">
-          <div><dt>Based in</dt><dd>Gij&oacute;n, Asturias, Spain</dd></div>
-          <div><dt>Work status</dt><dd class="ok">Authorised to work in Spain without sponsorship</dd></div>
-          <div><dt>Doctorate</dt><dd>PhD thesis submitted, defence pending</dd></div>
-          <div><dt>Languages</dt><dd>Bengali &middot; English C1 &middot; Spanish</dd></div>
-        </dl>
-      </div>
+      <p class="lede">Transport-planning and sustainable-mobility researcher at the <strong>University of Oviedo</strong>. I study how
+        routes, traffic conditions and vehicle technology shape travel time, energy use and emissions, using PTV Visum,
+        PTV Vissim, Aimsun, GIS, Python and MATLAB.</p>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Gij&oacute;n, Asturias, Spain</dd></div>
+        <div><dt>Work status</dt><dd class="ok">Authorised to work in Spain without sponsorship</dd></div>
+        <div><dt>Doctorate</dt><dd>PhD thesis submitted, defence pending</dd></div>
+        <div><dt>Languages</dt><dd>Bengali &middot; English C1 &middot; Spanish</dd></div>
+      </dl>
     </div>
+    <figure class="junction" aria-label="Illustrative animation of a four-arm signalised junction with vehicles queueing and moving on the signal phases.">
+      <canvas aria-hidden="true"></canvas>
+      <p class="j-tag">Signalised junction &middot; illustrative simulation</p>
+      <figcaption class="hud" aria-hidden="true">
+        <span><i class="hud-dot"></i><b class="hud-phase">E&ndash;W green</b></span>
+        <span>Vehicles in view <b class="hud-n">0</b></span>
+        <span class="grow">Queued <b class="hud-q">0</b></span>
+      </figcaption>
+    </figure>
+  </div>
 
+  <div class="wrap route-wrap">
     <div class="route-block">
       <div class="route-head">
         <h2>Route so far, 2008&ndash;2026</h2>
@@ -452,65 +507,73 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 </section>
 <div class="hold" aria-hidden="true"></div>
 
-<section class="layer feature" id="research" aria-labelledby="h-research">
-<div class="in"><div class="wrap sheet-in">
+<section class="layer" id="research" aria-labelledby="h-research">
+<div class="in">
+<div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">03</span><h2 id="h-research">Doctoral research</h2><span class="s-of">03 / 07</span></div>
-
   <div class="thesis">
-    <p class="lab">PhD thesis &middot; Energy and Process Control</p>
+    <p class="lab">PhD thesis &middot; Energy and Process Control &middot; University of Oviedo</p>
     <h3>Transport Decarbonisation through Electronic Systems and Digital Management Strategies</h3>
-    <div class="thesis-meta">
-      <div><small>University</small><span>University of Oviedo, Gij&oacute;n</span></div>
-      <div><small>Period</small><span>2020&ndash;2026</span></div>
-      <div><small>Funding</small><span>Severo Ochoa predoctoral contract, Principality of Asturias</span></div>
-      <div><small>Status</small><span>Thesis submitted, defence pending</span></div>
+    <ul class="tmeta">
+      <li>2020&ndash;2026</li>
+      <li>Severo Ochoa predoctoral contract, Principality of Asturias</li>
+      <li>Thesis submitted, defence pending</li>
+    </ul>
+  </div>
+</div>
+
+<div class="drive">
+  <div class="drive-pin">
+    <div class="drive-head"><span>The method, as one journey</span><span class="drive-count">Stage <b>01</b> / 05</span></div>
+    <div class="road2" aria-hidden="true">
+      <div class="zn"><span>Urban</span><span>Mixed</span><span>Interurban</span></div>
+      <div class="asph">
+        <svg class="car" viewBox="0 0 56 26"><rect x="1" y="1.5" width="54" height="23" rx="7" fill="#F2F5F8"/><rect x="33" y="4.5" width="11" height="17" rx="3" fill="#0E1923" opacity=".85"/><rect x="9" y="5.5" width="8" height="15" rx="2.5" fill="#0E1923" opacity=".55"/><rect x="51" y="4" width="3" height="5" rx="1" fill="#FFE9A8"/><rect x="51" y="17" width="3" height="5" rx="1" fill="#FFE9A8"/></svg>
+      </div>
+      <ol class="posts">
+        <li style="left:0%"><span>1</span><em>Read</em></li>
+        <li style="left:25%"><span>2</span><em>Model</em></li>
+        <li style="left:50%"><span>3</span><em>Test</em></li>
+        <li style="left:75%"><span>4</span><em>Measure</em></li>
+        <li style="left:100%"><span>5</span><em>Report</em></li>
+      </ol>
+    </div>
+    <div class="drive-view">
+      <ol class="drive-track">
+        <li class="leg">
+          <span class="k">01</span>
+          <h4>Read the route</h4>
+          <p>Every journey starts as data: route geometry and road classification, speed limits, turns, traffic signals, elevation and operating conditions, across urban, mixed and interurban trips.</p>
+          <ul class="tg"><li>OpenStreetMap</li><li>Mapbox</li><li>Geoapify</li><li>Routing APIs</li><li>GPS/OBD logs</li><li>Time series</li></ul>
+        </li>
+        <li class="leg">
+          <span class="k">02</span>
+          <h4>Model the traffic</h4>
+          <p>The cleaned data feeds transport, traffic and vehicle-performance models, built and evaluated in industry simulation software alongside MATLAB and Python.</p>
+          <ul class="tg"><li>PTV Visum</li><li>PTV Vissim</li><li>Aimsun</li><li>MATLAB</li><li>Python</li></ul>
+        </li>
+        <li class="leg">
+          <span class="k">03</span>
+          <h4>Test the scenarios</h4>
+          <p>Scenario and sensitivity analyses vary what a driver actually meets on the road, and the assumptions behind the model.</p>
+          <ul class="tg"><li>Traffic signals</li><li>Speed profiles</li><li>Road conditions</li><li>Driver behaviour</li><li>Modelling assumptions</li></ul>
+        </li>
+        <li class="leg">
+          <span class="k">04</span>
+          <h4>Measure the outcome</h4>
+          <p>Each run produces comparable indicators for conventional, hybrid and electric vehicles and for different driver profiles, to show what drives performance.</p>
+          <ul class="four"><li>Travel time</li><li>Energy demand</li><li>Emissions</li><li>Efficiency</li></ul>
+        </li>
+        <li class="leg">
+          <span class="k">05</span>
+          <h4>Check and report</h4>
+          <p>Results are benchmarked against peer-reviewed studies and established transport and emissions models, with modelled fuel consumption checked against real-driving Torque OBD data, then written up as visualisations, technical reports and evidence-based recommendations.</p>
+        </li>
+      </ol>
     </div>
   </div>
-
-  <div class="flow" role="group" aria-label="How the modelling framework works">
-    <div class="flow-col" style="--c:#FFFFFF">
-      <h4>Data in</h4>
-      <ul>
-        <li>Route geometry and road classification</li>
-        <li>Speed limits, turns and traffic signals</li>
-        <li>Elevation</li>
-        <li>GPS/OBD logs and time series</li>
-        <li>OpenStreetMap and routing APIs</li>
-      </ul>
-    </div>
-    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M3 13h18M15 6l7 7-7 7" fill="none" stroke="#FFFFFF" stroke-width="2.4"/></svg></div>
-    <div class="flow-col" style="--c:#8DB7E6">
-      <h4>Modelling</h4>
-      <ul>
-        <li>PTV Visum, PTV Vissim, Aimsun</li>
-        <li>MATLAB and Python</li>
-        <li>Scenario and sensitivity analysis</li>
-        <li>Signals, speed profiles, road conditions, driver behaviour</li>
-      </ul>
-    </div>
-    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M3 13h18M15 6l7 7-7 7" fill="none" stroke="#FFFFFF" stroke-width="2.4"/></svg></div>
-    <div class="flow-col" style="--c:#2F80D0">
-      <h4>Indicators out</h4>
-      <ul>
-        <li>Travel time</li>
-        <li>Energy demand</li>
-        <li>Emissions</li>
-        <li>Efficiency</li>
-        <li>Compared across conventional, hybrid and electric vehicles and driver profiles</li>
-      </ul>
-    </div>
-  </div>
-  <p class="flow-note">Outputs benchmarked against peer-reviewed studies and established transport and emissions models, with modelled fuel consumption checked against real-driving Torque OBD data.</p>
-
-  <ol class="points">
-    <li>Conducted urban and interurban mobility studies using route geometry, road classification, speed limits, traffic signals, elevation and operating conditions.</li>
-    <li>Applied PTV Visum, PTV Vissim and Aimsun alongside MATLAB and Python to develop and evaluate transport, traffic and vehicle-performance scenarios.</li>
-    <li>Collected, cleaned and integrated multi-source GIS and mobility data from OpenStreetMap, routing and mapping APIs, GPS/OBD logs and time series.</li>
-    <li>Developed comparative models and KPIs for conventional, hybrid and electric vehicles, linking route conditions and driver profiles with travel time, energy, emissions and efficiency.</li>
-    <li>Designed scenario and sensitivity analyses on traffic signals, speed profiles, road conditions, driver behaviour and modelling assumptions.</li>
-    <li>Translated methods and results into visualisations, technical reports, presentations and evidence-based recommendations.</li>
-  </ol>
-</div></div>
+</div>
+</div>
 </section>
 <div class="hold" aria-hidden="true"></div>
 
@@ -545,7 +608,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
     <div>
       <h3>A Review of Simulation Models for CO&#8322; Pollution Reduction in the Transportation Sector</h3>
       <p>Nasrin, N., El-Sayed, I., and Garcia, J. (2022). IEEE Vehicle Power and Propulsion Conference (VPPC).</p>
-      <a class="doi" href="https://doi.org/10.1109/VPPC55846.2022.10003288" target="_blank" rel="noopener">DOI 10.1109/VPPC55846.2022.10003288 &#8599;</a>
+      <a class="doi" href="https://doi.org/10.1109/VPPC55846.2022.10003288" target="_blank" rel="noopener">DOI 10.1109/VPPC55846.2022.10003288</a>
     </div>
   </div>
 </div></div>
@@ -641,7 +704,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
       <a href="mailto:nahidnasrin14@gmail.com"><small>Email</small><span>nahidnasrin14@gmail.com</span></a>
       <a href="https://www.linkedin.com/in/nahid-nasrin-347159b3" target="_blank" rel="noopener"><small>LinkedIn</small><span>nahid-nasrin</span></a>
       <a href="https://www.researchgate.net/profile/Nahid-Nasrin" target="_blank" rel="noopener"><small>ResearchGate</small><span>Nahid-Nasrin</span></a>
-      <a class="dl" href="Nahid-Nasrin-CV.pdf" target="_blank" rel="noopener"><small>Curriculum vitae</small><span>Download CV</span></a>
+      <a class="dl" href="Nahid-Nasrin-Resume.pdf" target="_blank" rel="noopener"><small>Resume</small><span>Download resume</span></a>
     </div>
     <div class="end"><span>&copy; <span id="yr">2026</span> Nahid Nasrin</span><span>Gij&oacute;n, Asturias, Spain</span></div>
   </div>
@@ -699,8 +762,10 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
     var atFoot = stack && stack.getBoundingClientRect().bottom < vh * 0.55;
     var idx = atFoot ? stops.length - 1 : cur;
     stops.forEach(function(li, i){ li.classList.toggle('here', i === idx); li.classList.toggle('past', i < idx); });
-    if (nav) nav.classList.toggle('off', atFoot);
-    if (nav) nav.classList.toggle('on-dark', !atFoot && layers[cur] && layers[cur].classList.contains('feature'));
+    if (nav) nav.classList.toggle('off', atFoot || cur === 0);
+    var dr = document.querySelector('.drive'), dark = false;
+    if (dr) { var q = dr.getBoundingClientRect(); dark = q.top <= vh / 2 && q.bottom >= vh / 2; }
+    if (nav) nav.classList.toggle('on-dark', !atFoot && dark);
   }
   function on(){ if (!ticking) { ticking = true; requestAnimationFrame(paint); } }
 
@@ -728,6 +793,223 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
   });
 
   var yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+<script>
+/* ---------- hero: a small signalised-junction simulation (illustrative, right-hand traffic) ---------- */
+(function(){
+  var fig = document.querySelector('.junction'); if (!fig) return;
+  var cv = fig.querySelector('canvas'), ctx = cv.getContext('2d');
+  var hPhase = fig.querySelector('.hud-phase'), hN = fig.querySelector('.hud-n'), hQ = fig.querySelector('.hud-q'), hDot = fig.querySelector('.hud-dot');
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var W, H, dpr, L, half, cw, sw, cx, cy, bg, aps = [], veh = [], phase = 0, pt = 0, seed = 7;
+  var DUR = [10, 2.6, 2.2, 10, 2.6, 2.2];
+  var COL = ['#E9EEF3', '#E9EEF3', '#C3CCD5', '#98A5B2', '#6E7C89', '#7FB3E8', '#E9EEF3', '#B9C4CE'];
+  function rnd(){ seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+  function sig(ax){ if (ax === 'EW') return phase === 0 ? 'g' : phase === 1 ? 'a' : 'r'; return phase === 3 ? 'g' : phase === 4 ? 'a' : 'r'; }
+
+  function setup(){
+    var r = fig.getBoundingClientRect();
+    W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = W * dpr; cv.height = H * dpr;
+    L = Math.max(12, Math.min(18, W / 46)); half = 2 * L; cw = Math.round(L * 0.8); sw = Math.round(L * 0.9);
+    cx = Math.round(W * 0.54); cy = Math.round((H - 44) * 0.5);
+    var gap = half + cw + 6;
+    aps = [
+      {ax:'EW', o:[-60, cy], u:[1, 0],  len:W + 120, c:cx + 60},
+      {ax:'EW', o:[W + 60, cy], u:[-1, 0], len:W + 120, c:W + 60 - cx},
+      {ax:'NS', o:[cx, -60], u:[0, 1],  len:H + 120, c:cy + 60},
+      {ax:'NS', o:[cx, H + 60], u:[0, -1], len:H + 120, c:H + 60 - cy}
+    ];
+    aps.forEach(function(a){ a.n = [-a.u[1], a.u[0]]; a.stop = a.c - gap; a.t = [rnd() * 2, rnd() * 2]; });
+    veh = []; seed = 7; drawBg();
+  }
+
+  function rr(c, x, y, w, h, r){ c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); }
+
+  function drawBg(){
+    bg = document.createElement('canvas'); bg.width = W * dpr; bg.height = H * dpr;
+    var c = bg.getContext('2d'); c.scale(dpr, dpr);
+    c.fillStyle = '#25313C'; c.fillRect(0, 0, W, H);                        /* pavements */
+    var e = half + sw, k = L * 1.6;
+    var blocks = [[-20, -20, cx - e + 20, cy - e + 20, 'br'], [cx + e, -20, W - cx - e + 20, cy - e + 20, 'bl'],
+                  [-20, cy + e, cx - e + 20, H - cy - e + 20, 'tr'], [cx + e, cy + e, W - cx - e + 20, H - cy - e + 20, 'tl']];
+    var s2 = 3;
+    blocks.forEach(function(b){
+      c.fillStyle = '#101C27'; rr(c, b[0], b[1], b[2], b[3], k); c.fill();
+      /* building footprints */
+      var pad = 10, x0 = b[0] + pad, y0 = b[1] + pad, x1 = b[0] + b[2] - pad, y1 = b[1] + b[3] - pad;
+      for (var y = y0; y < y1 - 14; ) {
+        var hgt = 26 + ((s2 = (s2 * 48271) % 2147483647) % 40);
+        for (var x = x0; x < x1 - 14; ) {
+          var wid = 30 + ((s2 = (s2 * 48271) % 2147483647) % 56);
+          var ww = Math.min(wid, x1 - x), hh = Math.min(hgt, y1 - y);
+          if (ww > 12 && hh > 12) { c.fillStyle = '#16242F'; c.fillRect(x, y, ww, hh); c.strokeStyle = '#1F303D'; c.lineWidth = 1; c.strokeRect(x + .5, y + .5, ww - 1, hh - 1); }
+          x += wid + 6;
+        }
+        y += hgt + 6;
+      }
+    });
+    c.fillStyle = '#2E3944';                                                 /* carriageways */
+    c.fillRect(0, cy - half, W, 2 * half); c.fillRect(cx - half, 0, 2 * half, H);
+    c.strokeStyle = 'rgba(255,255,255,.08)'; c.lineWidth = 1;
+    c.strokeRect(-1, cy - half + .5, W + 2, 2 * half - 1); c.strokeRect(cx - half + .5, -1, 2 * half - 1, H + 2);
+    c.fillStyle = '#2E3944'; c.fillRect(cx - half, cy - half, 2 * half, 2 * half);
+    var box = half + cw + 6;
+    c.fillStyle = 'rgba(238,242,246,.85)';
+    /* centre lines and lane dashes */
+    function hline(y, x0, x1, dash){ for (var x = x0; x < x1; x += dash ? 18 : 1e9) c.fillRect(x, y - 1, dash ? Math.min(10, x1 - x) : x1 - x0, 2); }
+    function vline(x, y0, y1, dash){ for (var y = y0; y < y1; y += dash ? 18 : 1e9) c.fillRect(x - 1, y, 2, dash ? Math.min(10, y1 - y) : y1 - y0); }
+    hline(cy, 0, cx - box, false); hline(cy, cx + box, W, false); vline(cx, 0, cy - box, false); vline(cx, cy + box, H, false);
+    [-L, L].forEach(function(o){ hline(cy + o, 0, cx - box, true); hline(cy + o, cx + box, W, true); vline(cx + o, 0, cy - box, true); vline(cx + o, cy + box, H, true); });
+    /* stop lines on the inbound side */
+    c.fillRect(cx - box + 1, cy, 3, half);        /* eastbound, south half */
+    c.fillRect(cx + box - 4, cy - half, 3, half); /* westbound, north half */
+    c.fillRect(cx - half, cy - box + 1, half, 3); /* southbound, west half */
+    c.fillRect(cx, cy + box - 4, half, 3);        /* northbound, east half */
+    /* zebra crossings */
+    c.fillStyle = 'rgba(238,242,246,.7)';
+    for (var t = -half + 2; t < half - 2; t += 7) {
+      c.fillRect(cx - half - cw - 3, cy + t, cw, 4); c.fillRect(cx + half + 3, cy + t, cw, 4);
+      c.fillRect(cx + t, cy - half - cw - 3, 4, cw); c.fillRect(cx + t, cy + half + 3, 4, cw);
+    }
+  }
+
+  function spawn(a, lane){
+    var q = veh.filter(function(v){ return v.a === a && v.l === lane; });
+    var last = q.reduce(function(m, v){ return !m || v.s < m.s ? v : m; }, null);
+    var bus = rnd() < 0.08, len = bus ? L * 3 : L * (1.55 + rnd() * 0.35);
+    if (last && last.s - last.len < len + L * 0.8) return false;
+    veh.push({a:a, l:lane, s:0, v:L * 3.2, len:len, wid:bus ? L * 0.74 : L * 0.62, col:bus ? '#3D8BD9' : COL[Math.floor(rnd() * COL.length)], vmax:L * (bus ? 3.4 : 3.9 + rnd() * 0.8)});
+    return true;
+  }
+
+  function step(dt){
+    pt += dt; if (pt > DUR[phase]) { pt = 0; phase = (phase + 1) % 6; }
+    aps.forEach(function(a){ for (var l = 0; l < 2; l++) { a.t[l] -= dt; if (a.t[l] <= 0) { spawn(a, l); a.t[l] = (a.ax === 'EW' ? 3 : 3.6) + rnd() * (a.ax === 'EW' ? 4.5 : 5.5); } } });
+    var acc = L * 2.4, brk = L * 5.5, gap = L * 0.55;
+    aps.forEach(function(a){
+      for (var l = 0; l < 2; l++) {
+        var q = veh.filter(function(v){ return v.a === a && v.l === l; }).sort(function(x, y){ return y.s - x.s; });
+        for (var i = 0; i < q.length; i++) {
+          var v = q[i], d = Infinity;
+          if (i > 0) d = q[i - 1].s - q[i - 1].len - gap - v.s;
+          var st = sig(a.ax), ds = a.stop - v.s;
+          if (st !== 'g' && ds > -0.5) {
+            var need = v.v * v.v / (2 * brk);
+            if (st === 'r' || ds > need * 1.15) d = Math.min(d, ds);
+          }
+          var nv = Math.min(v.v + acc * dt, v.vmax, Math.sqrt(2 * brk * Math.max(0, d)));
+          v.v = Math.max(0, nv); v.s += v.v * dt;
+        }
+      }
+    });
+    veh = veh.filter(function(v){ return v.s - v.len < v.a.len; });
+  }
+
+  function draw(){
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.drawImage(bg, 0, 0, W, H);
+    var queued = 0;
+    veh.forEach(function(v){
+      var a = v.a, off = (v.l + 0.5) * L;
+      var fx = a.o[0] + a.u[0] * v.s + a.n[0] * off, fy = a.o[1] + a.u[1] * v.s + a.n[1] * off;
+      if (v.v < L * 0.3 && v.s < a.stop + 1) queued++;
+      ctx.save(); ctx.translate(fx, fy); ctx.rotate(Math.atan2(a.u[1], a.u[0]));
+      ctx.fillStyle = 'rgba(0,0,0,.38)'; rr(ctx, -v.len + 1.5, -v.wid / 2 + 2, v.len, v.wid, 3); ctx.fill();
+      ctx.fillStyle = v.col; rr(ctx, -v.len, -v.wid / 2, v.len, v.wid, Math.min(4, v.wid / 2.6)); ctx.fill();
+      ctx.fillStyle = 'rgba(14,25,35,.72)'; ctx.fillRect(-v.len * 0.42, -v.wid / 2 + 2, v.len * 0.18, v.wid - 4);
+      ctx.fillStyle = 'rgba(14,25,35,.45)'; ctx.fillRect(-v.len * 0.86, -v.wid / 2 + 2.5, v.len * 0.1, v.wid - 5);
+      ctx.restore();
+    });
+    /* signal heads, on the kerb at each stop line */
+    var box = half + cw + 6, heads = [[cx - box - 12, cy + half + 5, 'EW'], [cx + box + 4, cy - half - 23, 'EW'], [cx - half - 23, cy - box - 12, 'NS'], [cx + half + 5, cy + box + 4, 'NS']];
+    heads.forEach(function(h){
+      var st = sig(h[2]), vert = h[2] === 'EW';
+      ctx.fillStyle = '#0A121A'; rr(ctx, h[0], h[1], vert ? 8 : 20, vert ? 20 : 8, 2); ctx.fill();
+      ['r', 'a', 'g'].forEach(function(k, i){
+        ctx.fillStyle = st === k ? (k === 'r' ? '#E5484D' : k === 'a' ? '#F5A524' : '#3DD68C') : '#26323C';
+        ctx.beginPath(); ctx.arc(h[0] + (vert ? 4 : 4 + i * 6), h[1] + (vert ? 4 + i * 6 : 4), 2.2, 0, 7); ctx.fill();
+      });
+    });
+    return queued;
+  }
+
+  var names = ['E–W green', 'E–W amber', 'All red', 'N–S green', 'N–S amber', 'All red'];
+  var sc = ['#3DD68C', '#F5A524', '#E5484D', '#3DD68C', '#F5A524', '#E5484D'];
+  var lastHud = 0, running = false, prev = 0, visible = true;
+  function hud(q){
+    if (hPhase) hPhase.textContent = names[phase];
+    if (hDot) hDot.style.setProperty('--sig', sc[phase]);
+    if (hN) hN.textContent = veh.filter(function(v){ return v.s > 60 && v.s - v.len < v.a.len - 60; }).length;
+    if (hQ) hQ.textContent = q;
+  }
+  function loop(ts){
+    if (!running) return;
+    var dt = Math.min(0.05, (ts - prev) / 1000 || 0); prev = ts;
+    step(dt); var q = draw();
+    if (ts - lastHud > 300) { lastHud = ts; hud(q); }
+    requestAnimationFrame(loop);
+  }
+  function start(){ if (running || reduce || !visible || document.hidden) return; running = true; prev = performance.now(); requestAnimationFrame(loop); }
+  function stop(){ running = false; }
+
+  setup();
+  for (var i = 0; i < 26 * 30; i++) step(1 / 30);           /* begin with traffic already flowing */
+  hud(draw());
+  if (!reduce) {
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ visible = es[0].isIntersecting; visible ? start() : stop(); }).observe(fig);
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+    start();
+  }
+  var rt = 0;
+  window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){
+    var r = fig.getBoundingClientRect(); if (Math.round(r.width) === W && Math.round(r.height) === H) return;
+    setup(); for (var i = 0; i < 26 * 30; i++) step(1 / 30); hud(draw());
+  }, 150); });
+})();
+
+/* ---------- doctoral research: scrolling drives the vehicle along the route, one stage at a time ---------- */
+(function(){
+  var d = document.querySelector('.drive'); if (!d) return;
+  var pin = d.querySelector('.drive-pin'), view = d.querySelector('.drive-view'), track = d.querySelector('.drive-track');
+  var road = d.querySelector('.road2'), legs = Array.prototype.slice.call(track.children), posts = Array.prototype.slice.call(d.querySelectorAll('.posts li'));
+  var count = d.querySelector('.drive-count b');
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var max = 0, at = -1;
+  function mark(i){
+    if (i === at) return; at = i;
+    legs.forEach(function(l, k){ l.classList.toggle('on', k === i); });
+    posts.forEach(function(p, k){ p.classList.toggle('on', k <= i); });
+    if (count) count.textContent = '0' + (i + 1);
+  }
+  if (reduce) { d.classList.add('static'); legs.forEach(function(l){ l.classList.add('on'); }); posts.forEach(function(p){ p.classList.add('on'); }); road.style.setProperty('--p', 1); return; }
+  function measure(){
+    var vw = view.clientWidth, x = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    var pw = Math.min(760, vw - 2 * x - (vw > 700 ? 120 : 24)), gap = vw > 700 ? Math.round(Math.min(140, vw * 0.08)) : 28;
+    track.style.setProperty('--pw', pw + 'px'); track.style.setProperty('--gap', gap + 'px');
+    track.style.paddingRight = Math.max(0, vw - x - pw) + 'px';
+    track.style.transform = 'none';
+    max = (legs.length - 1) * (pw + gap);
+    d.style.height = (pin.offsetHeight + max) + 'px';
+    paint();
+  }
+  var ticking = false;
+  function paint(){
+    ticking = false;
+    var r = d.getBoundingClientRect();
+    var p = max ? Math.min(1, Math.max(0, -r.top / max)) : 0;
+    track.style.transform = 'translate3d(' + (-p * max).toFixed(1) + 'px,0,0)';
+    road.style.setProperty('--p', p.toFixed(4));
+    mark(Math.round(p * (legs.length - 1)));
+  }
+  window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(paint); } }, {passive:true});
+  var rz = 0;
+  window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(measure, 120); }, {passive:true});
+  window.addEventListener('load', measure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  measure();
 })();
 </script>
 </body>
