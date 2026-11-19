@@ -24,7 +24,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
 :root{
   --bg:#FFFFFF;
@@ -47,6 +46,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit}
+::selection{background:var(--blue);color:#fff}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
 @media (max-width:600px){.wrap{padding:0 20px}}
@@ -54,11 +54,17 @@ a{color:inherit}
 .skip:focus{left:8px}
 
 /* layered sheets: each section pins once its bottom edge is on screen and the next slides over it */
-.stack{position:relative;z-index:1;background:var(--bg)}
-.layer{position:sticky;top:var(--t,0px);background:var(--bg);isolation:isolate}
-.layer + .layer{border-top:1px solid var(--ink);box-shadow:0 -22px 44px -26px rgba(10,34,56,.38)}
-.layer::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:var(--navy);opacity:calc(var(--cover,0) * .22)}
-.layer > .in{transform:scale(calc(1 - var(--cover,0) * .025));transform-origin:50% 0}
+.stack{position:relative;z-index:1;background:#081521}
+.layer{position:sticky;top:var(--t,0px);min-height:100vh;background:var(--bg);isolation:isolate;
+  transform:scale(calc(1 - var(--cover,0) * .06));transform-origin:50% var(--oy,50vh)}
+.layer:not(.hero){border-radius:26px 26px 0 0;box-shadow:0 -1px 0 rgba(17,20,23,.14),0 -34px 70px -24px rgba(4,14,24,.55)}
+.layer::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;border-radius:inherit;background:#081521;opacity:calc(var(--cover,0) * .55)}
+/* reading pause: each sheet holds still for most of a screen of scrolling before the next one arrives */
+.layer:not(.hero){display:flex;flex-direction:column}
+.layer:not(.hero) > .in{flex:1 0 auto;display:flex;flex-direction:column;justify-content:center}
+.layer:not(.hero) > .in > .wrap{width:100%}
+.hold{height:85vh}
+@media (max-width:700px){.layer:not(.hero){border-radius:18px 18px 0 0}.hold{height:90vh}}
 .contact{position:sticky;bottom:0;z-index:0}
 .contact.tall{position:relative}
 
@@ -150,7 +156,10 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 /* section sheets */
 .sheet-in{padding-top:56px;padding-bottom:72px}
 .s-head{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:18px;padding-bottom:16px;margin:0 0 32px;border-bottom:2px solid var(--ink)}
-.s-num{font-family:var(--mono);font-size:13px;color:var(--blue);padding-bottom:8px}
+.s-num{display:inline-flex;align-items:center;justify-content:center;min-width:58px;height:44px;padding:0 12px;margin-bottom:4px;
+  background:var(--blue);color:#fff;font-family:var(--head);font-weight:700;font-size:24px;line-height:1;border-radius:7px;
+  box-shadow:inset 0 0 0 3px var(--blue),inset 0 0 0 5px #fff}
+@media (max-width:600px){.s-num{min-width:46px;height:36px;font-size:19px;border-radius:6px}}
 .s-head h2{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(40px,5.4vw,72px);line-height:.92;
   text-transform:uppercase;letter-spacing:-.01em}
 .s-of{font-family:var(--mono);font-size:12px;color:var(--soft);padding-bottom:8px}
@@ -160,10 +169,25 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 .prose p:first-child{font-size:23px;line-height:1.45}
 .prose p + p{color:#2A3036}
 @media (max-width:860px){.prose{grid-template-columns:1fr;gap:18px}.prose p:first-child{font-size:20px}}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:56px 0 0;border-top:2px solid var(--ink)}
+.figs div{padding:18px 22px 4px 0}
+.figs div + div{padding-left:22px;border-left:1px solid var(--rule)}
+.figs dt{font-family:var(--head);font-weight:700;font-size:clamp(52px,5.6vw,80px);line-height:.9;color:var(--blue);letter-spacing:-.02em}
+.figs dt small{font-size:.36em;font-weight:600;letter-spacing:0;color:var(--soft);margin-left:4px}
+.figs dd{margin:10px 0 0;font-size:15.5px;line-height:1.4;color:#2A3036}
+@media (max-width:860px){
+  .figs{grid-template-columns:1fr 1fr}
+  .figs div:nth-child(3){padding-left:0;border-left:0}
+  .figs div:nth-child(n+3){border-top:1px solid var(--rule);padding-top:18px}
+}
 
 .table{border-top:2px solid var(--ink)}
 .table .tr{display:grid;grid-template-columns:44px minmax(0,.9fr) minmax(0,2fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--rule)}
-.table .tr i{font-style:normal;font-family:var(--mono);font-size:13px;color:var(--blue);padding-top:3px}
+.table .tr{transition:background .2s}
+.table .tr:hover{background:#F2F6FA}
+.table .tr i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;
+  border:2px solid var(--ink);border-radius:5px;font-family:var(--head);font-weight:700;font-size:15px;color:var(--ink)}
+.table .tr:hover i{background:var(--blue);border-color:var(--blue);color:#fff}
 .table h3{margin:0;font-family:var(--head);font-weight:600;font-size:20px;line-height:1.2}
 .table p{margin:0;color:#2A3036}
 @media (max-width:640px){.table .tr{grid-template-columns:34px 1fr;gap:4px 10px}.table p{grid-column:2}}
@@ -171,7 +195,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 /* doctoral research: the feature sheet, in navy */
 .feature{background:var(--navy);color:#fff}
 .feature .s-head{border-color:#fff}
-.feature .s-num{color:#8DB7E6}
+.feature .s-num{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 5px var(--navy)}
 .feature .s-of{color:#9DB0C4}
 .thesis .lab{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#8DB7E6}
 .thesis h3{margin:12px 0 0;font-family:var(--head);font-weight:600;font-size:clamp(28px,3.6vw,44px);line-height:1.08;max-width:24em}
@@ -207,7 +231,11 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 /* entries */
 .entry{display:grid;grid-template-columns:170px minmax(0,1fr);gap:28px;padding:24px 0;border-top:1px solid var(--rule)}
 .entry:first-of-type{border-top:0;padding-top:4px}
+.entry{transition:background .2s}
 .when{font-family:var(--mono);font-size:13.5px;color:var(--soft);padding-top:5px}
+.entry > div:last-child{position:relative;padding-left:30px;border-left:3px solid var(--blue)}
+.entry > div:last-child::before{content:"";position:absolute;left:-11px;top:5px;width:19px;height:19px;border-radius:50%;
+  background:#fff;border:4px solid var(--blue);box-sizing:border-box}
 .entry h3{margin:0;font-family:var(--head);font-weight:600;font-size:25px;line-height:1.15}
 .org{margin:4px 0 0;color:var(--soft);font-size:16px}
 .entry ul{margin:12px 0 0;padding-left:20px}
@@ -285,7 +313,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
 }
 
 @media (prefers-reduced-motion:reduce){
-  .layer > .in{transform:none}
+  .layer{transform:none}
   .stops a span,.stops a::after{transition:none}
 }
 </style>
@@ -385,6 +413,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
   </div>
 </div>
 </header>
+<div class="hold" aria-hidden="true"></div>
 
 <section class="layer" id="profile" aria-labelledby="h-profile">
 <div class="in"><div class="wrap sheet-in">
@@ -398,8 +427,15 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
       clear technical reports for supervisors and multidisciplinary collaborators. Before that, I taught electrical and
       electronic engineering and led a university department in Bangladesh.</p>
   </div>
+  <dl class="figs">
+    <div><dt>3</dt><dd>countries in the Erasmus Mundus MSc: Portugal, the UK and Spain</dd></div>
+    <div><dt>3</dt><dd>traffic-simulation suites: PTV Visum, PTV Vissim and Aimsun</dd></div>
+    <div><dt>3<small>yrs</small></dt><dd>as Head of the EEE Department, Port City International University</dd></div>
+    <div><dt>16<small>/117</small></dt><dd>merit position, BSc in Electrical and Electronic Engineering</dd></div>
+  </dl>
 </div></div>
 </section>
+<div class="hold" aria-hidden="true"></div>
 
 <section class="layer" id="expertise" aria-labelledby="h-expertise">
 <div class="in"><div class="wrap sheet-in">
@@ -414,6 +450,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
   </div>
 </div></div>
 </section>
+<div class="hold" aria-hidden="true"></div>
 
 <section class="layer feature" id="research" aria-labelledby="h-research">
 <div class="in"><div class="wrap sheet-in">
@@ -475,6 +512,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
   </ol>
 </div></div>
 </section>
+<div class="hold" aria-hidden="true"></div>
 
 <section class="layer" id="projects" aria-labelledby="h-projects">
 <div class="in"><div class="wrap sheet-in">
@@ -512,6 +550,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
   </div>
 </div></div>
 </section>
+<div class="hold" aria-hidden="true"></div>
 
 <section class="layer" id="experience" aria-labelledby="h-experience">
 <div class="in"><div class="wrap sheet-in">
@@ -539,6 +578,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
   </article>
 </div></div>
 </section>
+<div class="hold" aria-hidden="true"></div>
 
 <section class="layer" id="education" aria-labelledby="h-education">
 <div class="in"><div class="wrap sheet-in">
@@ -570,6 +610,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
   </article>
 </div></div>
 </section>
+<div class="hold" aria-hidden="true"></div>
 
 <section class="layer" id="toolkit" aria-labelledby="h-toolkit">
 <div class="in"><div class="wrap sheet-in">
@@ -587,6 +628,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
   </div>
 </div></div>
 </section>
+<div class="hold" aria-hidden="true"></div>
 
 </div>
 
@@ -631,7 +673,12 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
     var vh = window.innerHeight;
     /* a footer taller than the screen cannot be uncovered from underneath without hiding its top, so it scrolls normally */
     if (foot) foot.classList.toggle('tall', foot.offsetHeight > vh);
-    layers.forEach(function(l){ l.style.setProperty('--t', Math.min(0, vh - l.offsetHeight) + 'px'); });
+    layers.forEach(function(l){
+      var t = Math.min(0, vh - l.offsetHeight);
+      l.style.setProperty('--t', t + 'px');
+      /* recede around the middle of what is on screen, not the top of a tall sheet */
+      l.style.setProperty('--oy', Math.round(-t + vh / 2) + 'px');
+    });
     paint();
   }
 
@@ -642,8 +689,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
     layers.forEach(function(l, i){
       var next = layers[i + 1], c = 0;
       if (next) {
-        var top = next.getBoundingClientRect().top, h = Math.min(vh, l.offsetHeight);
-        c = Math.max(0, Math.min(1, 1 - top / h));
+        c = Math.max(0, Math.min(1, 1 - next.getBoundingClientRect().top / vh));
       }
       l.style.setProperty('--cover', (reduce ? 0 : c).toFixed(3));
     });
@@ -674,7 +720,7 @@ h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(64px,10.4vw,
       e.preventDefault();
       var y = 0, target = t.classList.contains('layer') ? t : t.closest('.layer');
       if (t === foot) y = document.documentElement.scrollHeight;
-      else for (var i = 0; i < layers.length && layers[i] !== target; i++) y += layers[i].offsetHeight;
+      else for (var n = stack.firstElementChild; n && n !== target; n = n.nextElementSibling) y += n.offsetHeight;
       window.scrollTo({top:y, behavior: reduce ? 'auto' : 'smooth'});
       if (history.replaceState) history.replaceState(null, '', '#' + id);
       if (t.classList.contains('layer')) { t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); }
