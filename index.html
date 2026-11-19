@@ -191,9 +191,8 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 
 /* profile: a pass card with the facts a hirer scans for, next to the short version in plain words */
 .pf{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:64px;align-items:center}
-.pass{position:relative;margin:0;border-radius:18px;background:#fff;overflow:hidden;transform:rotate(-1.6deg);transition:transform .35s;
+.pass{position:relative;margin:0;border-radius:18px;background:#fff;overflow:hidden;
   box-shadow:0 0 0 1px rgba(14,25,35,.12),0 40px 60px -30px rgba(14,25,35,.5),0 14px 24px -14px rgba(14,25,35,.3)}
-.pass:hover{transform:rotate(0)}
 .pass-top{display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--blue);color:#fff}
 .pass-id{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:10px;
   background:#fff;color:var(--blue);font-family:var(--head);font-weight:700;font-size:26px;letter-spacing:.02em;box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 4px var(--blue)}
@@ -221,7 +220,6 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
   .pass{max-width:520px}
 }
 @media (max-width:520px){
-  .pass{transform:none}
   .pass-top{padding:16px 18px}
   .pass-id{width:48px;height:48px;font-size:22px}
   .pass-top b{font-size:22px}
