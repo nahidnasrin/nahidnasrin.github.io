@@ -63,6 +63,8 @@ a{color:inherit}
 .layer:not(.hero){display:flex;flex-direction:column}
 .layer:not(.hero) > .in{flex:1 0 auto;display:flex;flex-direction:column;justify-content:center}
 .layer:not(.hero) > .in > .wrap{width:100%}
+.deck > .part + .part{border-top:1px solid var(--rule)}
+.deck > #research + .part{border-top:0}
 .hold{height:85vh}
 @media (max-width:700px){.layer:not(.hero){border-radius:18px 18px 0 0}.hold{height:90vh}}
 .contact{position:sticky;bottom:0;z-index:0}
@@ -555,7 +557,8 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 </section>
 <div class="hold" aria-hidden="true"></div>
 
-<section class="layer" id="expertise" aria-labelledby="h-expertise">
+<div class="layer deck" id="deck">
+<section class="part" id="expertise" aria-labelledby="h-expertise">
 <div class="in"><div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">02</span><h2 id="h-expertise">Expertise</h2><span class="s-of">02 / 07</span></div>
   <div class="table">
@@ -568,9 +571,8 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
   </div>
 </div></div>
 </section>
-<div class="hold" aria-hidden="true"></div>
 
-<section class="layer" id="research" aria-labelledby="h-research">
+<section class="part" id="research" aria-labelledby="h-research">
 <div class="in">
 <div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">03</span><h2 id="h-research">Doctoral research</h2><span class="s-of">03 / 07</span></div>
@@ -638,9 +640,8 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
 </div>
 </div>
 </section>
-<div class="hold" aria-hidden="true"></div>
 
-<section class="layer" id="projects" aria-labelledby="h-projects">
+<section class="part" id="projects" aria-labelledby="h-projects">
 <div class="in"><div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">04</span><h2 id="h-projects">Projects &amp; publication</h2><span class="s-of">04 / 07</span></div>
   <article class="entry">
@@ -676,9 +677,8 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
   </div>
 </div></div>
 </section>
-<div class="hold" aria-hidden="true"></div>
 
-<section class="layer" id="experience" aria-labelledby="h-experience">
+<section class="part" id="experience" aria-labelledby="h-experience">
 <div class="in"><div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">05</span><h2 id="h-experience">Teaching &amp; leadership</h2><span class="s-of">05 / 07</span></div>
   <article class="entry">
@@ -704,9 +704,8 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
   </article>
 </div></div>
 </section>
-<div class="hold" aria-hidden="true"></div>
 
-<section class="layer" id="education" aria-labelledby="h-education">
+<section class="part" id="education" aria-labelledby="h-education">
 <div class="in"><div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">06</span><h2 id="h-education">Education</h2><span class="s-of">06 / 07</span></div>
   <article class="entry">
@@ -736,15 +735,15 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
   </article>
 </div></div>
 </section>
-<div class="hold" aria-hidden="true"></div>
 
-<section class="layer" id="toolkit" aria-labelledby="h-toolkit">
+<section class="part" id="toolkit" aria-labelledby="h-toolkit">
 <div class="in"><div class="wrap sheet-in">
   <div class="s-head"><span class="s-num">07</span><h2 id="h-toolkit">Toolkit</h2><span class="s-of">07 / 07</span></div>
   <figure class="tmap">
     <svg viewBox="0 0 1176 470" role="img" aria-labelledby="tm-t tm-d"><title id="tm-t">Toolkit drawn as a transit map</title><desc id="tm-d">Line B, modelling and simulation: PTV Visum, PTV Vissim, Aimsun, MATLAB. Line D, programming and data: MATLAB, Python, SQLite with relational databases and JSON, advanced Excel, JavaScript with Node.js and Angular. Line C, GIS and mobility data: GIS, OpenStreetMap, Mapbox, Geoapify, routing APIs, GPS/OBD logs, time series. MATLAB is the interchange between lines B and D.</desc><path d="M58 96 H500 L620 236" fill="none" stroke="#0B4F8C" stroke-width="10" stroke-linejoin="round"/><path d="M620 236 H1118" fill="none" stroke="#111417" stroke-width="10"/><path d="M58 396 H1118" fill="none" stroke="#6F7C89" stroke-width="10"/><g><rect x="23" y="79" width="34" height="34" rx="7" fill="#0B4F8C"/><rect x="25.5" y="81.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="40" y="102" text-anchor="middle">B</text></g><g><rect x="23" y="379" width="34" height="34" rx="7" fill="#6F7C89"/><rect x="25.5" y="381.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="40" y="402" text-anchor="middle">C</text></g><g><rect x="1119" y="219" width="34" height="34" rx="7" fill="#111417"/><rect x="1121.5" y="221.5" width="29" height="29" rx="5" fill="none" stroke="#fff" stroke-width="1.6"/><text class="pl" x="1136" y="242" text-anchor="middle">D</text></g><g class="stop-g"><circle class="st" cx="140" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="140" y="72" text-anchor="middle">PTV Visum</text></g><g class="stop-g"><circle class="st" cx="290" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="290" y="72" text-anchor="middle">PTV Vissim</text></g><g class="stop-g"><circle class="st" cx="430" cy="96" r="9" stroke="#0B4F8C"/><text class="nm" x="430" y="72" text-anchor="middle">Aimsun</text></g><g class="stop-g"><rect x="590" y="219" width="60" height="34" rx="17" fill="#fff" stroke="#111417" stroke-width="5"/><text class="nm" x="620" y="284" text-anchor="middle">MATLAB</text><text class="sb" x="620" y="303" text-anchor="middle">Interchange B · D</text></g><g class="stop-g"><circle class="st" cx="745" cy="236" r="9" stroke="#111417"/><text class="nm" x="745" y="270" text-anchor="middle">Python</text><text class="sb" x="745" y="289" text-anchor="middle">Data processing</text></g><g class="stop-g"><circle class="st" cx="855" cy="236" r="9" stroke="#111417"/><text class="sb" x="855" y="212" text-anchor="middle">Relational databases, JSON</text><text class="nm" x="855" y="193" text-anchor="middle">SQLite</text></g><g class="stop-g"><circle class="st" cx="965" cy="236" r="9" stroke="#111417"/><text class="nm" x="965" y="270" text-anchor="middle">Advanced Excel</text><text class="sb" x="965" y="289" text-anchor="middle">Analysis, reporting</text></g><g class="stop-g"><circle class="st" cx="1060" cy="236" r="9" stroke="#111417"/><text class="sb" x="1060" y="212" text-anchor="middle">Node.js, Angular</text><text class="nm" x="1060" y="193" text-anchor="middle">JavaScript</text></g><g class="stop-g"><circle class="st" cx="140" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="140" y="430" text-anchor="middle">GIS</text></g><g class="stop-g"><circle class="st" cx="290" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="290" y="430" text-anchor="middle">OpenStreetMap</text></g><g class="stop-g"><circle class="st" cx="440" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="440" y="430" text-anchor="middle">Mapbox</text></g><g class="stop-g"><circle class="st" cx="580" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="580" y="430" text-anchor="middle">Geoapify</text></g><g class="stop-g"><circle class="st" cx="725" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="725" y="430" text-anchor="middle">Routing APIs</text></g><g class="stop-g"><circle class="st" cx="880" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="880" y="430" text-anchor="middle">GPS/OBD logs</text><text class="sb" x="880" y="449" text-anchor="middle">Real driving</text></g><g class="stop-g"><circle class="st" cx="1040" cy="396" r="9" stroke="#6F7C89"/><text class="nm" x="1040" y="430" text-anchor="middle">Time series</text></g><text class="lgh" x="40" y="206">KEY</text><rect x="40" y="229" width="26" height="8" fill="#0B4F8C"/><text class="lg" x="78" y="238"><tspan font-weight="600">B</tspan>  Modelling and simulation</text><rect x="40" y="257" width="26" height="8" fill="#111417"/><text class="lg" x="78" y="266"><tspan font-weight="600">D</tspan>  Programming and data</text><rect x="40" y="285" width="26" height="8" fill="#6F7C89"/><text class="lg" x="78" y="294"><tspan font-weight="600">C</tspan>  GIS and mobility data</text><text class="lgh" x="40" y="322">LINE LETTERS MATCH THE EXPERTISE LIST</text></svg>
     <div class="tm-m">
       <section class="tm-line" style="--c:#0B4F8C"><h3><i>B</i>Modelling and simulation</h3><ol><li>PTV Visum</li><li>PTV Vissim</li><li>Aimsun</li><li class="ix">MATLAB<small>Interchange with line D</small></li></ol></section>
+</div>
       <section class="tm-line" style="--c:#111417"><h3><i>D</i>Programming and data</h3><ol><li class="ix">MATLAB<small>Interchange with line B</small></li><li>Python<small>Data processing</small></li><li>SQLite<small>Relational databases, JSON</small></li><li>Advanced Excel<small>Analysis, reporting</small></li><li>JavaScript<small>Node.js, Angular</small></li></ol></section>
       <section class="tm-line" style="--c:#6F7C89"><h3><i>C</i>GIS and mobility data</h3><ol><li>GIS</li><li>OpenStreetMap</li><li>Mapbox</li><li>Geoapify</li><li>Routing APIs</li><li>GPS/OBD logs<small>Real driving</small></li><li>Time series</li></ol></section>
     </div>
@@ -796,6 +795,7 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
   var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var stops = Array.prototype.slice.call(document.querySelectorAll('.stops li'));
   var nav = document.querySelector('.stops');
+  var secs = ['top','profile','expertise','research','projects','experience','education','toolkit'].map(function(id){ return document.getElementById(id); });
   var ticking = false;
 
   /* pin each sheet once its bottom edge is on screen; taller sheets scroll first */
@@ -826,13 +826,13 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
     });
     /* which sheet is in front */
     var cur = 0;
-    layers.forEach(function(l, i){ if (l.getBoundingClientRect().top <= vh * 0.45) cur = i; });
+    secs.forEach(function(el, i){ if (el && el.getBoundingClientRect().top <= vh * 0.45) cur = i; });
     var atFoot = stack && stack.getBoundingClientRect().bottom < vh * 0.55;
     var idx = atFoot ? stops.length - 1 : cur;
     stops.forEach(function(li, i){ li.classList.toggle('here', i === idx); li.classList.toggle('past', i < idx); });
     if (nav) nav.classList.toggle('off', atFoot || cur === 0);
     var dr = document.querySelector('.drive'), dark = false;
-    if (dr && layers[cur] && layers[cur].id === 'research') { var q = dr.getBoundingClientRect(); dark = q.top <= vh / 2 && q.bottom >= vh / 2; }
+    if (dr && secs[cur] && secs[cur].id === 'research') { var q = dr.getBoundingClientRect(); dark = q.top <= vh / 2 && q.bottom >= vh / 2; }
     if (nav) nav.classList.toggle('on-dark', !atFoot && dark);
   }
   function on(){ if (!ticking) { ticking = true; requestAnimationFrame(paint); } }
@@ -853,10 +853,13 @@ h1{margin:18px 0 0;font-family:var(--head);font-weight:700;font-size:clamp(64px,
       e.preventDefault();
       var y = 0, target = t.classList.contains('layer') ? t : t.closest('.layer');
       if (t === foot) y = document.documentElement.scrollHeight;
-      else for (var n = stack.firstElementChild; n && n !== target; n = n.nextElementSibling) y += n.offsetHeight;
+      else {
+        for (var n = stack.firstElementChild; n && n !== target; n = n.nextElementSibling) y += n.offsetHeight;
+        if (target && t !== target) y += Math.round(t.getBoundingClientRect().top - target.getBoundingClientRect().top);
+      }
       window.scrollTo({top:y, behavior: reduce ? 'auto' : 'smooth'});
       if (history.replaceState) history.replaceState(null, '', '#' + id);
-      if (t.classList.contains('layer')) { t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); }
+      if (t !== foot) { t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); }
     });
   });
 
